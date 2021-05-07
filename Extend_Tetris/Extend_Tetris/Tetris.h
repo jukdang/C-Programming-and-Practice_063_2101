@@ -19,11 +19,9 @@ private:
 
 public:
 
-	Tetris() {
-		Board board;
-		Block block(&board, 1);
-	}
+	Tetris() : board(), block(&board, 1) {};
 
 	void run();
+
 };
 

@@ -1,14 +1,6 @@
 ﻿  Block.cpp
   Board.cpp
-E:\PNU\C-Programming-and-Practice_063_2101\Extend_Tetris\Extend_Tetris\Block.h(17,7): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
-E:\PNU\C-Programming-and-Practice_063_2101\Extend_Tetris\Extend_Tetris\Block.h(17,7): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
-E:\PNU\C-Programming-and-Practice_063_2101\Extend_Tetris\Extend_Tetris\Block.h(17,14): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
-E:\PNU\C-Programming-and-Practice_063_2101\Extend_Tetris\Extend_Tetris\Block.h(23,8): error C2061: 구문 오류: 식별자 'Board'
-E:\PNU\C-Programming-and-Practice_063_2101\Extend_Tetris\Extend_Tetris\Block.h(23,7): error C2535: 'Block::Block(void)': 멤버 함수를 이미 정의했거나 선언했습니다.
-E:\PNU\C-Programming-and-Practice_063_2101\Extend_Tetris\Extend_Tetris\Block.h(22): message : 'Block::Block' 선언을 참조하십시오.
-E:\PNU\C-Programming-and-Practice_063_2101\Extend_Tetris\Extend_Tetris\Block.h(23,40): error C2065: 'board': 선언되지 않은 식별자입니다.
-E:\PNU\C-Programming-and-Practice_063_2101\Extend_Tetris\Extend_Tetris\Block.h(23,54): error C2065: 'type': 선언되지 않은 식별자입니다.
-E:\PNU\C-Programming-and-Practice_063_2101\Extend_Tetris\Extend_Tetris\Block.h(23,34): error C2614: 'Block': 멤버 초기화가 잘못되었습니다. 'board'이(가) 기본 또는 멤버가 아닙니다.
   Tetris.cpp
   main.cpp
   코드를 생성하고 있습니다...
+  Extend_Tetris.vcxproj -> E:\PNU\C-Programming-and-Practice_063_2101\Extend_Tetris\x64\Debug\Extend_Tetris.exe

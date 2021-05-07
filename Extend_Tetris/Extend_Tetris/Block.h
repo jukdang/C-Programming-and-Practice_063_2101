@@ -17,21 +17,22 @@ private:
 	Board* board;
 
 
-
 public:
-	Block();
-	Block(Board *board, int type) : board(board), shape(type) {
-		x = 5, y = 5;
-		direction = 1;
-		saved_shape = 0, next_shape = 0;
+	Block(Board *board, int type) {
+		x = 5, y = 5; direction = 1; saved_shape = 0, next_shape = 0;
+		this->board = board;
+		shape = type;
 	}
-
+	//완성
 	bool can_place_on_board();
+	void draw_block();
+	void erase_block();
 
-	void rotate_block();  //rotate했을때 can_place_on_board()인지 확인후 true->rotate, false->그대로
-	void move_left();  //move했을때 can_place_on_board()인지 확인후 true->move, false->그대로
-	void move_right();  //move했을때 can_place_on_board()인지 확인후 true->move, false->그대로
-	void move_down();  //move했을때 can_place_on_board()인지 확인후 true->move, false->erase _line()실행,
+	//미완성
+	void rotate_block();  
+	void move_left();  
+	void move_right(); 
+	void move_down();  
 
 };
 
