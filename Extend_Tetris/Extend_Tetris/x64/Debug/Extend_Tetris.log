@@ -1,5 +1,7 @@
 ﻿  Block.cpp
   Board.cpp
+  KeyInput.cpp
+  Score.cpp
   Tetris.cpp
   main.cpp
   코드를 생성하고 있습니다...

@@ -10,23 +10,26 @@ private:
 	int shape;
 	int direction;
 
-	int saved_shape;
-	
-	int next_shape;
+	int stop;
 
 	Board* board;
 
 
 public:
-	Block(Board *board, int type) {
-		x = 5, y = 5; direction = 1; saved_shape = 0, next_shape = 0;
+	Block(Board *board) {
+		x = 0;
+		y = 0;
+		direction = 0;
+		shape = 0;
+		stop = false;
 		this->board = board;
-		shape = type;
 	}
 	//완성
 	bool can_place_on_board();
 	void draw_block();
 	void erase_block();
+	void create_block(int type);
+	bool is_stop();
 
 	//미완성
 	void rotate_block();  
@@ -34,5 +37,6 @@ public:
 	void move_right(); 
 	void move_down();  
 
+	
 };
 

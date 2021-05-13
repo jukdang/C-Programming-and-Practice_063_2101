@@ -15,13 +15,28 @@ private:
 	Board board;
 
 	Score score;
+
+	bool running;
 	
+	int speed;
+
+	clock_t start_time;
 
 public:
 
-	Tetris() : board(), block(&board, 1) {};
+	Tetris() : board(), block(&board) {
+		running = true;
+		speed = 5;
+		start_time = clock();
+	};
 
 	void run();
+
+	double time_difference();
+
+	void process_key(char c);
+
+	void print_screen();
 
 };
 

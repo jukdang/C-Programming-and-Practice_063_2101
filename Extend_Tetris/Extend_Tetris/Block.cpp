@@ -53,3 +53,34 @@ void Block::erase_block()
 		board->erase_board(ny, nx);
 	}
 }
+
+void Block::create_block(int type)
+{
+	x = 5;
+	y = 5;
+	shape = type;
+	direction = 0;
+	stop = false;
+	draw_block();
+}
+
+bool Block::is_stop()
+{
+	if (stop) return true;
+	return false;
+}
+
+void Block::move_down()
+{
+	erase_block();
+	this->y += 1;
+	if (can_place_on_board()) {
+		draw_block();
+	}
+	else {
+		this->y -= 1;
+		this->stop = true;
+		draw_block();
+	}
+}
+
