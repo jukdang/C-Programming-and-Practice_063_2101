@@ -64,13 +64,22 @@ void Block::create_block(int type)
 	draw_block();
 }
 
-bool Block::is_stop()
+void Block::rotate_block() // 편경찬님 작성
 {
-	if (stop) return true;
-	return false;
+//	int i, j
+//	if (Block::can_place_on_board())	// 회전시 보드와 충돌 생기는지 체크		
+//	{
+//		Block::erase_block();			// 기존 블록 삭제해 빈공간만들기 
+//
+//		direction = direction + 1;
+//		if (direction == 4)
+//			direction = 0;				// 기존 블록에 회전넣기, 회전4번되면 원래모양으로 
+//
+//		Block::draw_block();			// 회전된 블록 보드에 나타내기 
+//	}
 }
 
-void Block::move_down()
+void Block::move_down() //김채원님 작성
 {
 	erase_block();
 	this->y += 1;
@@ -79,8 +88,39 @@ void Block::move_down()
 	}
 	else {
 		this->y -= 1;
-		this->stop = true;
+		Block::stop = true;
+		draw_block(); // 추가
+	}
+}
+
+void Block::move_left() //김채원님 작성
+{
+	erase_block();
+	this->x -= 1;
+	if (can_place_on_board()) {
+		draw_block();
+	}
+	else {
+		this->x += 1;
 		draw_block();
 	}
 }
 
+void Block::move_right() //김채원님 작성
+{
+	erase_block();
+	this->x += 1;
+	if (can_place_on_board()) {
+		draw_block();
+	}
+	else {
+		this->x -= 1;
+		draw_block();
+	}
+}
+
+bool Block::is_stop()
+{
+	if (stop) return true;
+	return false;
+}

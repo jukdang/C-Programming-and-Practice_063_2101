@@ -7,6 +7,7 @@
 #include <ctime>
 #include <conio.h>
 #include <windows.h>
+#include <iostream>
 
 #define UP 72
 #define DOWN 80
@@ -28,8 +29,6 @@ void Tetris::run()
 			char c = _getch();
 			process_key(c);
 
-			start_time = clock();
-
 			print_screen();
 		}
 		else {
@@ -42,15 +41,20 @@ void Tetris::run()
 			}
 		}
 		if (block.is_stop()) {
-			//board.erase_line();
-			//if (board.check_gameover()) {
-			//	running = false;
-			//}
+			
+			board.erase_line();
+			if (board.check_gameover()) {
+				running = false;
+				break;
+			}
+
 			block.create_block(rand() % 7);
 
 			print_screen();
 		}
 	}
+	system("cls");
+	std::cout << "Game over";
 }
 
 double Tetris::time_difference()
@@ -64,15 +68,16 @@ void Tetris::process_key(char c)
 	switch (c)
 	{
 	case UP:
+		block.rotate_block();
 		break;
 	case DOWN:
 		block.move_down();
 		break;
 	case LEFT:
-		//block->move_left();
+		block.move_left();
 		break;
 	case RIGHT:
-		//block->move_right();
+		block.move_right();
 		break;
 	default:
 		break;

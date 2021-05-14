@@ -10,7 +10,7 @@ private:
 	int shape;
 	int direction;
 
-	int stop;
+	bool stop;
 
 	Board* board;
 
@@ -30,12 +30,13 @@ public:
 	void erase_block();
 	void create_block(int type);
 	bool is_stop();
+	void move_left();
+	void move_right();
+	void move_down();
 
 	//¹Ì¿Ï¼º
 	void rotate_block();  
-	void move_left();  
-	void move_right(); 
-	void move_down();  
+	
 
 	
 };

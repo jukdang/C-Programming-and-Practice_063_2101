@@ -22,16 +22,14 @@ public:
 			}
 		}
 	};
-	//완성
+
 	void draw_board(int y, int x);
 	void erase_board(int y, int x);
 	int board_status(int y, int x);
 	void print_board();
-	
-	//미완성
 	void clear_board();
 	void erase_line();
-	void check_gameover();
+	bool check_gameover();
 	
 };
 
