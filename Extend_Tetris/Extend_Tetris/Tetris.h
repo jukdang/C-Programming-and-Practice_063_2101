@@ -11,6 +11,8 @@ class Tetris
 private:
 	
 	Block block;
+	//Block keep_block;
+	//Block next_block;
 
 	Board board;
 
@@ -37,6 +39,8 @@ public:
 	void process_key(char c);
 
 	void print_screen();
+
+	void keep_block();
 
 };
 

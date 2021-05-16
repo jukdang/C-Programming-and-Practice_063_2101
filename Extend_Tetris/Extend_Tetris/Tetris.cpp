@@ -28,7 +28,7 @@ void Tetris::run()
 		if (_kbhit()) {
 			char c = _getch();
 			process_key(c);
-
+			
 			print_screen();
 		}
 		else {

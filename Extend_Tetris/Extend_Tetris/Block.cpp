@@ -66,17 +66,22 @@ void Block::create_block(int type)
 
 void Block::rotate_block() // 편경찬님 작성
 {
-//	int i, j
-//	if (Block::can_place_on_board())	// 회전시 보드와 충돌 생기는지 체크		
-//	{
-//		Block::erase_block();			// 기존 블록 삭제해 빈공간만들기 
-//
-//		direction = direction + 1;
-//		if (direction == 4)
-//			direction = 0;				// 기존 블록에 회전넣기, 회전4번되면 원래모양으로 
-//
-//		Block::draw_block();			// 회전된 블록 보드에 나타내기 
-//	}
+	int i, j;
+
+	Block::erase_block();  // 일단 지우고 
+
+	direction = direction + 1;		// 모양도 돌려놓고 
+	if (direction == 4)
+		direction = 0;
+
+	if (Block::can_place_on_board())	 	//true면 돌린 모양 그리고 
+		Block::draw_block();
+
+	else
+	{
+		direction = direction - 1;		//false면 돌리기전 모양 그리고 
+		Block::draw_block();
+	}
 }
 
 void Block::move_down() //김채원님 작성

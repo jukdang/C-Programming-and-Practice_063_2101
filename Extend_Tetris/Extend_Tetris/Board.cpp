@@ -70,7 +70,7 @@ void Board::erase_line()  // 알리님 작성. // 일부 수정
 bool Board::check_gameover() // 알리님이 작성. // 일부 수정
 {
 	for (int X = 1; X < TABLE_X - 1; X++) {
-		if (board[7][X] == 1) return true; // 1(3) board(table)  //test를 위해 y=7이면 gameover
+		if (board[5][X] == 1) return true; // 1(3) board(table)  //test를 위해 y=7이면 gameover
 	}
 	return false;
 }
