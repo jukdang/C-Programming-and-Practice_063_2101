@@ -1,8 +1,10 @@
 #pragma once
 
 #include "Board.h"
+#include "gotoxy.h"
 
 #include <iostream>
+#include <cstdio>
 using namespace std;
 
 #define TABLE_Y 22
@@ -33,11 +35,19 @@ void Board::print_board()
 
 	for (int i = 0; i < TABLE_Y; i++) {
 		for (int j = 0; j < TABLE_X; j++) {
-			if (board[i][j] == -1) cout << b1;
-			else if (board[i][j] == 0) cout << b0;
-			else if (board[i][j] == 1) cout << b2;
+			if (board[i][j] == -1) {
+				gotoxy(i + 1, 2*j + 2);
+				cout << b1;
+			}
+			else if (board[i][j] == 0) {
+				gotoxy(i + 1, 2*j + 2);
+				cout << b0;
+			}
+			else if (board[i][j] == 1) {
+				gotoxy(i + 1, 2*j + 2);
+				cout << b2;
+			}
 		}
-		std::cout << "\n";
 	}
 }
 

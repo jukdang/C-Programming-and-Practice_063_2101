@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Tetris.h"
+#include "gotoxy.h"
 
 #include <cstdlib>
 #include <cstdio>
@@ -54,6 +55,7 @@ void Tetris::run()
 		}
 	}
 	system("cls");
+	gotoxy(10, 10);
 	std::cout << "Game over";
 }
 
@@ -86,7 +88,6 @@ void Tetris::process_key(char c)
 
 void Tetris::print_screen()
 {
-	system("cls");
 	board.print_board();
 }
 

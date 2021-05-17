@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="Block.cpp" />
     <ClCompile Include="Board.cpp" />
+    <ClCompile Include="gotoxy.cpp" />
     <ClCompile Include="KeyInput.cpp" />
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="Tetris.cpp" />
@@ -154,6 +155,7 @@
     <ClInclude Include="Tetris.h">
       <DeploymentContent>false</DeploymentContent>
     </ClInclude>
+    <ClInclude Include="gotoxy.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
