@@ -2,6 +2,9 @@
 
 #include "Block.h"
 #include "Board.h"
+#include "gotoxy.h"
+
+#include <iostream>
 
 
 int block_list[7][4][4][2] = {
@@ -54,17 +57,17 @@ void Block::erase_block()
 	}
 }
 
-void Block::create_block(int type)
+Block& Block::create_block(int type)
 {
 	x = 5;
 	y = 5;
 	shape = type;
 	direction = 0;
 	stop = false;
-	draw_block();
+	return *this;
 }
 
-void Block::rotate_block() // Æí°æÂù´Ô ÀÛ¼º
+void Block::rotate_block() // Æí°æÂù ÀÛ¼º
 {
 	int i, j;
 
@@ -84,7 +87,39 @@ void Block::rotate_block() // Æí°æÂù´Ô ÀÛ¼º
 	}
 }
 
-void Block::move_down() //±èÃ¤¿ø´Ô ÀÛ¼º
+Block& Block::get_next_block(Block* block)
+{
+	this->x = block->x;
+	this->y = block->y;
+	this->direction = block->direction;
+	this->shape = block->shape;
+	this->stop = block->stop;
+
+	return *this;
+}
+
+void Block::print_block(int y, int x, int print_type)
+{
+	if (print_type == 1) {
+		gotoxy(y, x); std::cout << "¡à¡à Next ¡à¡à";
+	}
+	else {
+		gotoxy(y, x); std::cout << "¡à¡à Keep ¡à¡à";
+	}
+	for (int i = 1; i < 6; i++) {
+		gotoxy(y + i, x); std::cout << "¡à          ¡à";
+	}
+	gotoxy(y+6, x); std::cout << "¡à¡à¡à¡à¡à¡à¡à";
+
+
+	for (int i = 0; i < 4; i++) {
+		gotoxy(y + 2 + block_list[shape][0][i][0], x + 4 + block_list[shape][0][i][1]*2);
+		std::cout << "¡á";
+	}
+	
+}
+
+void Block::move_down() //±èÃ¤¿ø ÀÛ¼º
 {
 	erase_block();
 	this->y += 1;
@@ -94,11 +129,11 @@ void Block::move_down() //±èÃ¤¿ø´Ô ÀÛ¼º
 	else {
 		this->y -= 1;
 		Block::stop = true;
-		draw_block(); // Ãß°¡
+		draw_block();
 	}
 }
 
-void Block::move_left() //±èÃ¤¿ø´Ô ÀÛ¼º
+void Block::move_left() //±èÃ¤¿ø ÀÛ¼º
 {
 	erase_block();
 	this->x -= 1;
@@ -111,7 +146,7 @@ void Block::move_left() //±èÃ¤¿ø´Ô ÀÛ¼º
 	}
 }
 
-void Block::move_right() //±èÃ¤¿ø´Ô ÀÛ¼º
+void Block::move_right() //±èÃ¤¿ø ÀÛ¼º
 {
 	erase_block();
 	this->x += 1;

@@ -23,7 +23,8 @@ void Tetris::run()
 
 	running = true;
 
-	block.create_block(rand()%7);
+	block.create_block(rand() % 7).draw_block();
+	next_block.create_block(rand() % 7);
 	
 	while (running) {
 		if (_kbhit()) {
@@ -49,7 +50,8 @@ void Tetris::run()
 				break;
 			}
 
-			block.create_block(rand() % 7);
+			block.get_next_block(&next_block).draw_block();
+			next_block.create_block(rand() % 7);
 
 			print_screen();
 		}
@@ -89,5 +91,9 @@ void Tetris::process_key(char c)
 void Tetris::print_screen()
 {
 	board.print_board();
+	next_block.print_block(1, 30, 1); // print_type=1, next;
+	//keep_block.print_block(14,30,2); // print_type=2, keep;
+	//score.print_score();
+	gotoxy(0, 0);
 }
 

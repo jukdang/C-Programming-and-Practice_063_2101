@@ -28,14 +28,16 @@ public:
 	bool can_place_on_board();
 	void draw_block();
 	void erase_block();
-	void create_block(int type);
+	Block& create_block(int type);
 	bool is_stop();
 	void move_left();
 	void move_right();
 	void move_down();
-
-	//¹Ì¿Ï¼º
 	void rotate_block();  
+
+	Block& get_next_block(Block* block);
+
+	void print_block(int y,int x, int print_type);
 	
 
 	

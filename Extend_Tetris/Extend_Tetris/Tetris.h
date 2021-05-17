@@ -11,8 +11,8 @@ class Tetris
 private:
 	
 	Block block;
-	//Block keep_block;
-	//Block next_block;
+	Block keep_block;
+	Block next_block;
 
 	Board board;
 
@@ -26,7 +26,7 @@ private:
 
 public:
 
-	Tetris() : board(), block(&board) {
+	Tetris() : board(), block(&board), next_block(&board), keep_block(&board) {
 		running = true;
 		speed = 5;
 		start_time = clock();
@@ -40,7 +40,7 @@ public:
 
 	void print_screen();
 
-	void keep_block();
+	
 
 };
 

@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <cstdio>
+#include <Windows.h>
 using namespace std;
 
 #define TABLE_Y 22
@@ -60,27 +61,44 @@ void Board::clear_board()
 	}
 }
 
-void Board::erase_line()  // 알리님 작성. // 일부 수정
+// 알리님 작성 + 강찬석 작성
+void Board::erase_line()  
 {
-	for (int Y = 1; Y < TABLE_Y - 1; Y++) { // 변수수정
+	for (int Y = 1; Y < TABLE_Y - 1; Y++) { 
 		bool isLinear = true;
 		for (int X = 1; X < TABLE_X - 1; X++) { 
-			if (board[Y][X] == 0) isLinear = false; // 0(3) board(table)
+			if (board[Y][X] == 0) isLinear = false; 
 		}
 		if (isLinear) {
-			for (int i = Y; i > 1; i--) { // 변수수정
+			
+			// special effect - 강찬석 작성
+			for (int i = 0; i < 3; i++) {
 				for (int j = 1; j < TABLE_X - 1; j++) {
-					board[i][j] = board[i - 1][j]; // board(table)
+					board[Y][j] = 0;
+				}
+				print_board();
+				Sleep(80);
+				for (int j = 1; j < TABLE_X - 1; j++) {
+					board[Y][j] = 1;
+				}
+				print_board();
+				Sleep(80);
+			}
+			// special effect end
+			// 알리님 작성
+			for (int i = Y; i > 1; i--) { 
+				for (int j = 1; j < TABLE_X - 1; j++) {
+					board[i][j] = board[i - 1][j]; 
 				}
 			}
 		}
 	}
 }
 
-bool Board::check_gameover() // 알리님이 작성. // 일부 수정
+bool Board::check_gameover() // 알리님이 작성
 {
 	for (int X = 1; X < TABLE_X - 1; X++) {
-		if (board[5][X] == 1) return true; // 1(3) board(table)  //test를 위해 y=7이면 gameover
+		if (board[5][X] == 1) return true;
 	}
 	return false;
 }

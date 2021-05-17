@@ -5,6 +5,7 @@ class Board
 {
 private:
 	int board[22][12];
+	// 1 : 블럭
 	// 0 : 빈공간
 	// -1 : 테두리
 public:
