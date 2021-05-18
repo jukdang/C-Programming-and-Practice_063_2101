@@ -14,6 +14,9 @@
 #define DOWN 80
 #define LEFT 75
 #define RIGHT 77
+#define KEEP 107
+#define SPACE 32
+#define PAUSE 112
 #define CLOCK_PER_SEC 100
 
 void Tetris::run()
@@ -22,6 +25,7 @@ void Tetris::run()
 	start_time = clock();
 
 	running = true;
+	board.clear_board();
 
 	block.create_block(rand() % 7).draw_block();
 	next_block.create_block(rand() % 7);
@@ -56,15 +60,13 @@ void Tetris::run()
 			print_screen();
 		}
 	}
-	system("cls");
-	gotoxy(10, 10);
-	std::cout << "Game over";
+
 }
 
 double Tetris::time_difference()
 {
 	clock_t now_time = clock();
-	return now_time-start_time;
+	return now_time - start_time;
 }
 
 void Tetris::process_key(char c)

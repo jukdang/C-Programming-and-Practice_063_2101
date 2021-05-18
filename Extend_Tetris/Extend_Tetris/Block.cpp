@@ -60,7 +60,7 @@ void Block::erase_block()
 Block& Block::create_block(int type)
 {
 	x = 5;
-	y = 5;
+	y = 4;
 	shape = type;
 	direction = 0;
 	stop = false;
