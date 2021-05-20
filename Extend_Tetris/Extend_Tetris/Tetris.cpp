@@ -2,6 +2,7 @@
 
 #include "Tetris.h"
 #include "gotoxy.h"
+#include "Pause.h"
 
 #include <cstdlib>
 #include <cstdio>
@@ -85,6 +86,9 @@ void Tetris::process_key(char c)
 	case RIGHT:
 		block.move_right();
 		break;
+	case PAUSE:
+		pause.print_pause();
+		break;
 	default:
 		break;
 	}
@@ -95,7 +99,7 @@ void Tetris::print_screen()
 	board.print_board();
 	next_block.print_block(1, 30, 1); // print_type=1, next;
 	//keep_block.print_block(14,30,2); // print_type=2, keep;
-	//score.print_score();
+	score.print_score();
 	gotoxy(0, 0);
 }
 

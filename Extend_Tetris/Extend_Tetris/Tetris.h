@@ -4,6 +4,7 @@
 #include "Board.h"
 #include "Score.h"
 #include "KeyInput.h"
+#include "Pause.h"
 #include <iostream>
 
 class Tetris
@@ -18,6 +19,8 @@ private:
 
 	Score score;
 
+	Pause pause;
+
 	bool running;
 	
 	int speed;
@@ -26,7 +29,7 @@ private:
 
 public:
 
-	Tetris() : board(), block(&board), next_block(&board), keep_block(&board) {
+	Tetris() : board(), block(&board), next_block(&board), keep_block(&board), score(&speed), pause() {
 		running = true;
 		speed = 5;
 		start_time = clock();
