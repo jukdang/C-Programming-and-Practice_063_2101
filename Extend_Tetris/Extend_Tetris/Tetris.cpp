@@ -98,7 +98,7 @@ void Tetris::print_screen()
 {
 	board.print_board();
 	next_block.print_block(1, 30, 1); // print_type=1, next;
-	//keep_block.print_block(14,30,2); // print_type=2, keep;
+	keep_block.print_block(14,30,2); // print_type=2, keep;
 	score.print_score();
 	gotoxy(0, 0);
 }

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Score.h"
 
 class Board
 {
@@ -8,9 +9,11 @@ private:
 	// 1 : 블럭
 	// 0 : 빈공간
 	// -1 : 테두리
+	Score* score;
+
 public:
-	
-	Board() {
+
+	Board(Score* score) { //ver.2 추가
 		for (int i = 0; i < 12; i++) {
 			board[0][i] = board[21][i] = -1;
 		}
@@ -22,6 +25,7 @@ public:
 				board[i][j] = 0;
 			}
 		}
+		this->score = score;
 	};
 
 	void draw_board(int y, int x);
@@ -31,6 +35,8 @@ public:
 	void clear_board();
 	void erase_line();
 	bool check_gameover();
-	
-};
 
+	//ver.2 추가
+	void print_pause();
+
+};

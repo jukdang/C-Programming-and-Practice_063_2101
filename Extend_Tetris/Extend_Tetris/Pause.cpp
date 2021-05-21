@@ -128,7 +128,7 @@ void Pause::con_or_esc() {
 		break;
 	case EXIT:
 		system("cls");
-		//게임 끝내는 코드 추가
+		*running = false;
 		break;
 	default:
 		con_or_esc();

@@ -91,6 +91,8 @@ void Board::erase_line()
 					board[i][j] = board[i - 1][j]; 
 				}
 			}
+
+			score->score_up();
 		}
 	}
 }

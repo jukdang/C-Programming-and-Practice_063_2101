@@ -29,7 +29,7 @@ private:
 
 public:
 
-	Tetris() : board(), block(&board), next_block(&board), keep_block(&board), score(&speed), pause() {
+	Tetris() : board(&score), block(&board), next_block(&board), keep_block(&board), score(&speed), pause(&running) {
 		running = true;
 		speed = 5;
 		start_time = clock();
