@@ -2,6 +2,7 @@
 
 #include "Tetris.h"
 #include "gotoxy.h"
+#include "Mainmenu.h"
 
 #include <iostream>
 #include <conio.h>
@@ -9,48 +10,37 @@
 
 #define RE 114
 #define ESC 27
+#define START 49
+#define CHALL 50
+#define END 51
 
 
 int main() {
 
-	bool playing = false;
-
 	Tetris tetris;
+	Mainmenu mainmenu;
+	mainmenu.print_menu();
 
-	playing = true;
-	while (playing) {
-		system("cls");
-		tetris.run();
-
-
-		system("cls");
-		gotoxy(10, 22);
-		std::cout << "[Game over]";
-		gotoxy(12, 10);
-		std::cout << "[다시 시작하려먼 \'R\'키를 눌러주세요]";
-
-
-		bool waiting_key_input = true;
-		while (waiting_key_input) {
-			if (_kbhit()) {
-				char c = _getch();
-				switch (c) {
-				case RE:
-					waiting_key_input = false;
-					playing = true;
-					break;
-				case ESC:
-					waiting_key_input = false;
-					playing = false;
-					break;
-				default:
-					waiting_key_input = true;
-					break;
-				}
-			}
+	while (1) {
+		char c = _getch();
+		switch (c) {
+		case START:
+			system("cls");
+			tetris.run();
+			break;
+		case CHALL:
+			system("cls");
+			//챌린지 모드 들어가는거
+			break;
+		case END:
+			system("cls");
+			std::cout << "See you again" << std::endl;
+			tetris.change_running();
+			break;
+		default:
+			continue;
 		}
-
-
+		break;
 	}
 	
 

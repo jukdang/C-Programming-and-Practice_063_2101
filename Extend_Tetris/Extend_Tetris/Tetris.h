@@ -48,5 +48,7 @@ public:
 
 	void keep(Block* now, Block* keep, Block* next);
 
+	void change_running();
+
 };
 

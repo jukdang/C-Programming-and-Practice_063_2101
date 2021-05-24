@@ -143,6 +143,7 @@
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="gotoxy.cpp" />
     <ClCompile Include="KeyInput.cpp" />
+    <ClCompile Include="Mainmenu.cpp" />
     <ClCompile Include="Pause.cpp" />
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="Tetris.cpp" />
@@ -152,6 +153,7 @@
     <ClInclude Include="Block.h" />
     <ClInclude Include="Board.h" />
     <ClInclude Include="KeyInput.h" />
+    <ClInclude Include="Mainmenu.h" />
     <ClInclude Include="Pause.h" />
     <ClInclude Include="Score.h" />
     <ClInclude Include="Tetris.h">

@@ -125,3 +125,6 @@ void Tetris::print_screen()
 	gotoxy(0, 0);
 }
 
+void Tetris::change_running() {
+	running = false;
+}
