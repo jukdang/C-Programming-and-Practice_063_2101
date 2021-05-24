@@ -12,8 +12,8 @@ void Score::score_up() { //ver.2 추가
 }
 
 void Score::print_score() { //ver.2 추가
-	gotoxy(20, 30);
+	gotoxy(22, 30);
 	cout << " Score : ";
-	gotoxy(20, 39);
+	gotoxy(22, 39);
 	cout << score;
 }

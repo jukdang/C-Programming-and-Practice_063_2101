@@ -22,6 +22,8 @@ private:
 	Pause pause;
 
 	bool running;
+	bool is_keeped;
+	bool can_use_keep;
 	
 	int speed;
 
@@ -31,6 +33,7 @@ public:
 
 	Tetris() : board(&score), block(&board), next_block(&board), keep_block(&board), score(&speed), pause(&running) {
 		running = true;
+		is_keeped = false;
 		speed = 5;
 		start_time = clock();
 	};
@@ -43,7 +46,7 @@ public:
 
 	void print_screen();
 
-	
+	void keep(Block* now, Block* keep, Block* next);
 
 };
 

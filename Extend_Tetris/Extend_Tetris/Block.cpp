@@ -87,7 +87,7 @@ void Block::rotate_block() // 편경찬 작성
 	}
 }
 
-Block& Block::get_next_block(Block* block)
+Block& Block::get_block(Block* block)
 {
 	this->x = block->x;
 	this->y = block->y;
@@ -97,8 +97,16 @@ Block& Block::get_next_block(Block* block)
 
 	return *this;
 }
+Block& Block::get_keep(Block* block)
+{
+	this->direction = 0;
+	this->shape = block->shape;
+	this->stop = block->stop;
 
-void Block::print_block(int y, int x, int print_type)
+	return *this;
+}
+
+void Block::print_block(int y, int x, int print_type, bool valid)
 {
 	if (print_type == 1) {
 		gotoxy(y, x); std::cout << "□□ Next □□";
@@ -111,11 +119,13 @@ void Block::print_block(int y, int x, int print_type)
 	}
 	gotoxy(y+6, x); std::cout << "□□□□□□□";
 
-
-	for (int i = 0; i < 4; i++) {
-		gotoxy(y + 2 + block_list[shape][0][i][0], x + 4 + block_list[shape][0][i][1]*2);
-		std::cout << "■";
+	if (valid) {
+		for (int i = 0; i < 4; i++) {
+			gotoxy(y + 2 + block_list[shape][0][i][0], x + 4 + block_list[shape][0][i][1] * 2);
+			std::cout << "■";
+		}
 	}
+	
 	
 }
 

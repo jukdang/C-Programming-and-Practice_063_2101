@@ -35,9 +35,10 @@ public:
 	void move_down();
 	void rotate_block();  
 
-	Block& get_next_block(Block* block);
+	Block& get_block(Block* block);
+	Block& get_keep(Block* block);
 
-	void print_block(int y,int x, int print_type);
+	void print_block(int y,int x, int print_type, bool valid);
 	
 
 	
