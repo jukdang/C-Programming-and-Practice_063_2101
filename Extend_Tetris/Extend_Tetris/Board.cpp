@@ -5,11 +5,13 @@
 
 #include <iostream>
 #include <cstdio>
+#include <conio.h>
 #include <Windows.h>
 using namespace std;
 
 #define TABLE_Y 22
 #define TABLE_X 12
+#define SPACE 32
 
 
 void Board::draw_board(int y, int x)
@@ -100,7 +102,26 @@ void Board::erase_line()
 bool Board::check_gameover() // 알리님이 작성
 {
 	for (int X = 1; X < TABLE_X - 1; X++) {
-		if (board[5][X] == 1) return true;
+		if (board[5][X] == 1) {
+			gotoxy(10, 32);
+			cout << "GAME OVER!";
+
+			for (int i = 5; i > 0; i--) {
+				for (int j = 1; j < TABLE_X - 1; j++) {
+					board[i][j] = 1;
+				}
+				print_board();
+				Sleep(80);
+			}
+
+
+			while (true) {
+				char c = _getch();
+				if (c == SPACE) break;
+			}
+
+			return true;
+		}
 	}
 	return false;
 }

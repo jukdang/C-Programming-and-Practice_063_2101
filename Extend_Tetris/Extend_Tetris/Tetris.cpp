@@ -100,15 +100,27 @@ void Tetris::process_key(char c)
 				temp.get_keep(&keep_block);
 				keep_block.get_keep(&block);
 				block.get_keep(&temp);
+				if (!block.can_place_on_board()) {
+					temp.get_keep(&keep_block);
+					keep_block.get_keep(&block);
+					block.get_keep(&temp);
+					break;
+				}
+				can_use_keep = false;
 			}
 			else {
 				keep_block.get_keep(&block);
 				block.get_keep(&next_block);
+				if (!block.can_place_on_board()) {
+					next_block.get_keep(&block);
+					block.get_keep(&keep_block);
+					break;
+				}
 				next_block.create_block(rand() % 7);
 				is_keeped = true;
+				can_use_keep = false;
 			}
 			block.draw_block();
-			can_use_keep = false;
 		}
 		break;
 	default:

@@ -129,6 +129,7 @@ void Pause::con_or_esc() {
 	case EXIT:
 		system("cls");
 		*running = false;
+		//gameover»≠∏È
 		break;
 	default:
 		con_or_esc();

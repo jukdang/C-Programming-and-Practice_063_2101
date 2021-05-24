@@ -8,3 +8,4 @@ Readme
 1.0.5  edit pause
 1.0.6  +keep_block
 1.0.7  +main_menu
+1.0.8  +new(game_over), fix bug(keep_block)
