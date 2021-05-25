@@ -3,8 +3,12 @@
 #include "Pause.h"
 #include <iostream>
 
-#define PLAY 112
-#define EXIT 101
+#define PLAY 0
+#define EXIT 1
+
+#define UP 72
+#define DOWN 80
+#define SELEC 13
 
 using namespace std;
 
@@ -55,12 +59,6 @@ void Pause::print_pause()
 		pause[e[i][0]][e[i][1]] = -2;
 	}
 
-	//p, e 버튼 처리
-	for (int i = 6; i <= 13; i++) {
-		pause[i][12] = 0;
-		pause[i + 12][12] = 0;
-	}
-
 	//출력 
 	gotoxy(1, 0);
 	for (int i = 0; i < 17; i++) {
@@ -76,52 +74,38 @@ void Pause::print_pause()
 			if (pause[j][i] == -2) {
 				cout << b2;
 			}
-			if (i == 12) {
-				if (j == 6 or j == 18) {
-					cout << "［";
-				}
-				if (j == 13 or j == 25) {
-					cout << "］";
-				}
-				if (j == 8 or j == 20) {
-					cout << "→";
-				}
-				if (j == 7 or j == 9) {
-					cout << "Ｐ";
-				}
-				if (j == 10) {
-					cout << "ｌ";
-				}
-				if (j == 11) {
-					cout << "ａ";
-				}
-				if (j == 12) {
-					cout << "ｙ";
-				}
-				if (j == 19 or j == 21) {
-					cout << "Ｅ";
-				}
-				if (j == 22) {
-					cout << "ｘ";
-				}
-				if (j == 23) {
-					cout << "ｉ";
-				}
-				if (j == 24) {
-					cout << "ｔ";
-				}
-
-			}
+			
 
 		}
 		cout << endl;
 	}
-	con_or_esc();
-}
+	gotoxy(12, 28);
+	cout << "이어서";
+	gotoxy(14, 26);
+	cout << "메인메뉴로";
+	int select = 0;
+	while (1) {
+		if (select == 0) {
+			gotoxy(12, 24); cout << "▶";
+			gotoxy(12, 36); cout << "◀";
+			gotoxy(14, 22); cout << "　";
+			gotoxy(14, 38); cout << "　";
+		}
+		if (select == 1) {
+			gotoxy(12, 24); cout << "　";
+			gotoxy(12, 36); cout << "　";
+			gotoxy(14, 22); cout << "▶";
+			gotoxy(14, 38); cout << "◀";
+		}
 
-void Pause::con_or_esc() {
-	char c = _getch();
-	switch (c)
+		char c = _getch();
+		if (c == SELEC) {
+			break;
+		}
+		con_or_esc(c, &select);
+	}
+
+	switch (abs(select)%2)
 	{
 	case PLAY:
 		system("cls");
@@ -129,9 +113,29 @@ void Pause::con_or_esc() {
 	case EXIT:
 		system("cls");
 		*running = false;
-		//gameover화면
 		break;
 	default:
-		con_or_esc();
+		break;
+	}
+}
+
+void Pause::con_or_esc(char c, int*num) {
+	switch (c) {
+	case UP:
+		if ((*num) > 0) {
+			(*num)--;
+		}
+		else {
+			(*num) = 2;
+		}
+		break;
+	case DOWN:
+		if ((*num) < 2) {
+			(*num)++;
+		}
+		else {
+			(*num) = 0;
+		}
+		break;
 	}
 }

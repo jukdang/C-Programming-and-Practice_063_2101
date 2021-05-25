@@ -38,8 +38,7 @@ void Tetris::run(int challenge) // ÀÏ¹Ý
 		if (_kbhit()) {
 			char c = _getch();
 			process_key(c);
-			
-			print_screen();
+			if(running)	print_screen();
 		}
 		else {
 			if (time_difference() / CLOCK_PER_SEC > speed) {
@@ -141,8 +140,4 @@ void Tetris::print_screen()
 	keep_block.print_block(14, 30, 2, is_keeped); // print_type=2, keep;
 	score.print_score();
 	gotoxy(0, 0);
-}
-
-void Tetris::change_running() {
-	running = false;
 }

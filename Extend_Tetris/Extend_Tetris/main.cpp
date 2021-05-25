@@ -2,7 +2,7 @@
 
 #include "Tetris.h"
 #include "gotoxy.h"
-#include "Mainmenu.h"
+#include "Menu.h"
 
 #include <iostream>
 #include <conio.h>
@@ -10,11 +10,19 @@
 
 #define RE 114
 #define ESC 27
-#define START 49
-#define CHALL 50
-#define END 51
+
+#define UP 72
+#define DOWN 80
+#define SELEC 13
+
+#define NORMAL 0
+#define CHALLENGE 1
+#define EXIT 2
+
+using namespace std;
 
 void CursorView(char show);
+void control_cur(char c, int* num);
 
 int main() {
 
@@ -22,37 +30,79 @@ int main() {
 	CursorView(0);
 
 	Tetris tetris;
-	Mainmenu mainmenu;
-	mainmenu.print_menu();
-	int challenge = 0;
+	Menu menu;
+	int loop = true;
 
-	while (1) {
-		char c = _getch();
-		switch (c) {
-		case START:
+	while (loop) {
+		int challenge = 0;
+		int num = 0;
+		system("cls");
+		menu.main_menu();
+		while (1) {
+			if (num == 0) {
+				gotoxy(12, 24); cout << "¢º";
+				gotoxy(12, 36); cout << "¢¸";
+				gotoxy(14, 24); cout << "¡¡";
+				gotoxy(14, 36); cout << "¡¡";
+				gotoxy(16, 24); cout << "¡¡";
+				gotoxy(16, 36); cout << "¡¡";
+			}
+
+			if (num == 1) {
+				gotoxy(12, 24); cout << "¡¡";
+				gotoxy(12, 36); cout << "¡¡";
+				gotoxy(14, 24); cout << "¢º";
+				gotoxy(14, 36); cout << "¢¸";
+				gotoxy(16, 24); cout << "¡¡";
+				gotoxy(16, 36); cout << "¡¡";
+			}
+
+			if (num == 2) {
+				gotoxy(12, 24); cout << "¡¡";
+				gotoxy(12, 36); cout << "¡¡";
+				gotoxy(14, 24); cout << "¡¡";
+				gotoxy(14, 36); cout << "¡¡";
+				gotoxy(16, 24); cout << "¢º";
+				gotoxy(16, 36); cout << "¢¸";
+			}
+
+			char c = _getch();
+			if (c == SELEC) {
+				break;
+			}
+			control_cur(c, &num);
+		}
+
+
+		switch (num) {
+		case NORMAL:
 			system("cls");
 			tetris.run(0); //Normal Mode
 			break;
-		case CHALL:
+		case CHALLENGE:
 			system("cls");
-			challenge = mainmenu.select_challenge_menu();
+			challenge = menu.challenge_menu();
 			system("cls");
 			tetris.run(challenge); //Challenge Mode
 			break;
-		case END:
+		case EXIT:
 			system("cls");
 			std::cout << "See you again" << std::endl;
-			tetris.change_running();
+			loop = false;
 			break;
 		default:
-			continue;
+			break;
 		}
-		break;
 	}
 	
 
 
 }
+
+
+
+
+
 
 void CursorView(char show)//Ä¿¼­¼û±â±â
 {
@@ -65,4 +115,25 @@ void CursorView(char show)//Ä¿¼­¼û±â±â
 	ConsoleCursor.dwSize = 1;
 
 	SetConsoleCursorInfo(hConsole, &ConsoleCursor);
+}
+
+void control_cur(char c, int* num) {
+	switch (c) {
+	case UP:
+		if ((*num) > 0) {
+			(*num)--;
+		}
+		else {
+			(*num) = 2;
+		}
+		break;
+	case DOWN:
+		if ((*num) < 2) {
+			(*num)++;
+		}
+		else {
+			(*num) = 0;
+		}
+		break;
+	}
 }

@@ -142,7 +142,7 @@
     <ClCompile Include="Block.cpp" />
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="gotoxy.cpp" />
-    <ClCompile Include="Mainmenu.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Pause.cpp" />
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="Tetris.cpp" />
@@ -151,7 +151,7 @@
   <ItemGroup>
     <ClInclude Include="Block.h" />
     <ClInclude Include="Board.h" />
-    <ClInclude Include="Mainmenu.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Pause.h" />
     <ClInclude Include="Score.h" />
     <ClInclude Include="Tetris.h">

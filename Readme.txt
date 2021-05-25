@@ -10,3 +10,4 @@ Readme
 1.0.7  +main_menu
 1.0.8  +new(game_over), fix bug(keep_block)
 1.0.9  +new(challenge_mode)
+1.1.0  +edit(challenge,select interface)

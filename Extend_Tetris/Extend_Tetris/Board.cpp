@@ -165,12 +165,51 @@ void Board::clear_board(int challenge)
 		board[TABLE_Y - 1 - 5][3] = board[TABLE_Y - 1 - 5][TABLE_X - 1 - 3] = 1;
 		board[TABLE_Y - 1 - 6][2] = board[TABLE_Y - 1 - 6][TABLE_X - 1 - 2] = 1;
 		board[TABLE_Y - 1 - 7][1] = board[TABLE_Y - 1 - 7][TABLE_X - 1 - 1] = 1;
+		board[TABLE_Y - 1 - 8][1] = board[TABLE_Y - 1 - 8][TABLE_X - 1 - 1] = 1;
 	}
-	else if (challenge == 1) {
-
+	else if (challenge == 2) {
+		board[TABLE_Y - 1 - 1][5] = board[TABLE_Y - 1 - 1][TABLE_X - 1 - 5] = 1;
+		board[TABLE_Y - 1 - 2][4] = board[TABLE_Y - 1 - 2][TABLE_X - 1 - 4] = 1;
+		board[TABLE_Y - 1 - 3][3] = board[TABLE_Y - 1 - 3][TABLE_X - 1 - 3] = 1;
+		board[TABLE_Y - 1 - 4][2] = board[TABLE_Y - 1 - 4][TABLE_X - 1 - 2] = 1;
+		board[TABLE_Y - 1 - 5][1] = board[TABLE_Y - 1 - 5][TABLE_X - 1 - 1] = 1;
+		board[TABLE_Y - 1 - 6][2] = board[TABLE_Y - 1 - 6][TABLE_X - 1 - 2] = 1;
+		board[TABLE_Y - 1 - 7][3] = board[TABLE_Y - 1 - 7][TABLE_X - 1 - 3] = 1;
+		board[TABLE_Y - 1 - 8][4] = board[TABLE_Y - 1 - 8][TABLE_X - 1 - 4] = 1;
 	}
-	else if (challenge == 1) {
-
+	else if (challenge == 3) {
+		board[TABLE_Y - 1 - 1][5] = board[TABLE_Y - 1 - 1][TABLE_X - 1 - 5] = 1;
+		board[TABLE_Y - 1 - 2][4] = board[TABLE_Y - 1 - 2][TABLE_X - 1 - 4] = 1;
+		board[TABLE_Y - 1 - 3][3] = board[TABLE_Y - 1 - 3][TABLE_X - 1 - 3] = 1;
+		board[TABLE_Y - 1 - 4][2] = board[TABLE_Y - 1 - 4][TABLE_X - 1 - 2] = 1;
+		board[TABLE_Y - 1 - 5][1] = board[TABLE_Y - 1 - 5][TABLE_X - 1 - 1] = 1;
+		board[TABLE_Y - 1 - 6][2] = board[TABLE_Y - 1 - 6][TABLE_X - 1 - 2] = 1;
+		board[TABLE_Y - 1 - 7][3] = board[TABLE_Y - 1 - 7][TABLE_X - 1 - 3] = 1;
+		board[TABLE_Y - 1 - 7][4] = board[TABLE_Y - 1 - 7][TABLE_X - 1 - 4] = 1;
+		board[TABLE_Y - 1 - 6][5] = board[TABLE_Y - 1 - 6][TABLE_X - 1 - 5] = 1;
+	}
+	else if (challenge == 4) {
+		board[TABLE_Y - 1 - 1][1] = board[TABLE_Y - 1 - 3][1] = 1;
+		board[TABLE_Y - 1 - 5][1] = board[TABLE_Y - 1 - 7][1] = 1;
+		board[TABLE_Y - 1 - 2][4] = board[TABLE_Y - 1 - 4][4] = 1;
+		board[TABLE_Y - 1 - 6][4] = board[TABLE_Y - 1 - 1][5] = 1;
+		board[TABLE_Y - 1 - 3][5] = board[TABLE_Y - 1 - 5][5] = 1;
+		board[TABLE_Y - 1 - 2][8] = board[TABLE_Y - 1 - 4][8] = 1;
+		board[TABLE_Y - 1 - 1][9] = board[TABLE_Y - 1 - 3][9] = 1;
+	}
+	else if (challenge == 5) {
+		board[TABLE_Y - 1 - 1][3] = board[TABLE_Y - 1 - 1][4] = 1;
+		board[TABLE_Y - 1 - 1][5] = board[TABLE_Y - 1 - 1][6] = 1;
+		board[TABLE_Y - 1 - 1][7] = board[TABLE_Y - 1 - 1][8] = 1;
+		board[TABLE_Y - 1 - 2][3] = board[TABLE_Y - 1 - 2][8] = 1;
+		board[TABLE_Y - 1 - 3][8] = board[TABLE_Y - 1 - 4][8] = 1;
+		board[TABLE_Y - 1 - 5][3] = board[TABLE_Y - 1 - 5][4] = 1;
+		board[TABLE_Y - 1 - 5][5] = board[TABLE_Y - 1 - 5][6] = 1;
+		board[TABLE_Y - 1 - 5][7] = board[TABLE_Y - 1 - 5][8] = 1;
+		board[TABLE_Y - 1 - 6][3] = board[TABLE_Y - 1 - 7][3] = 1;
+		board[TABLE_Y - 1 - 8][3] = board[TABLE_Y - 1 - 8][4] = 1;
+		board[TABLE_Y - 1 - 8][5] = board[TABLE_Y - 1 - 8][6] = 1;
+		board[TABLE_Y - 1 - 8][7] = board[TABLE_Y - 1 - 8][8] = 1;
 	}
 
 }

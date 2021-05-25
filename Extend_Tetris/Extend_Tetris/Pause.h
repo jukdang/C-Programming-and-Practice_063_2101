@@ -13,5 +13,5 @@ public:
 		this->running = running;
 	}
 	void print_pause();
-	void con_or_esc();
+	void con_or_esc(char c, int* num);
 };

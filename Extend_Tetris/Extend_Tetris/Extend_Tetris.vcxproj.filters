@@ -36,7 +36,7 @@
     <ClCompile Include="Pause.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Mainmenu.cpp">
+    <ClCompile Include="Menu.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -59,7 +59,7 @@
     <ClInclude Include="Pause.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Mainmenu.h">
+    <ClInclude Include="Menu.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
