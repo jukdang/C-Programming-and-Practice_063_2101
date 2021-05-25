@@ -24,17 +24,20 @@ int main() {
 	Tetris tetris;
 	Mainmenu mainmenu;
 	mainmenu.print_menu();
+	int challenge = 0;
 
 	while (1) {
 		char c = _getch();
 		switch (c) {
 		case START:
 			system("cls");
-			tetris.run();
+			tetris.run(0); //Normal Mode
 			break;
 		case CHALL:
 			system("cls");
-			//챌린지 모드 들어가는거
+			challenge = mainmenu.select_challenge_menu();
+			system("cls");
+			tetris.run(challenge); //Challenge Mode
 			break;
 		case END:
 			system("cls");

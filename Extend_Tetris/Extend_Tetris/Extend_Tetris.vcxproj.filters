@@ -30,9 +30,6 @@
     <ClCompile Include="Score.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="KeyInput.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="gotoxy.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -54,9 +51,6 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Score.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="KeyInput.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="gotoxy.h">

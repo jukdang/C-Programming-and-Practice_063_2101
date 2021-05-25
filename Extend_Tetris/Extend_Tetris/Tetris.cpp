@@ -21,7 +21,7 @@
 #define PAUSE 112
 #define CLOCK_PER_SEC 100
 
-void Tetris::run() // 老馆
+void Tetris::run(int challenge) // 老馆
 {
 	srand((unsigned int)time(NULL));
 	start_time = clock();
@@ -29,7 +29,7 @@ void Tetris::run() // 老馆
 	running = true;
 	is_keeped = false;
 	can_use_keep = true;
-	board.clear_board();
+	board.clear_board(challenge);
 
 	block.create_block(rand() % 7).draw_block();
 	next_block.create_block(rand() % 7);
@@ -55,6 +55,12 @@ void Tetris::run() // 老馆
 			if (board.check_gameover()) {
 				running = false;
 				break;
+			}
+			if (challenge!=0) {
+				if (board.is_clear()) {
+					running = false;
+					break;
+				}
 			}
 
 			block.get_block(&next_block).draw_block();

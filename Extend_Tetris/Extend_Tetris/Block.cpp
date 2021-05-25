@@ -69,7 +69,6 @@ Block& Block::create_block(int type)
 
 void Block::rotate_block() // 편경찬 작성
 {
-	int i, j;
 
 	Block::erase_block();  // 일단 지우고 
 

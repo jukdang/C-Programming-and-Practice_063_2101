@@ -2,6 +2,7 @@
 
 #include "Mainmenu.h"
 #include <iostream>
+#include <conio.h>
 
 using namespace std;
 
@@ -68,4 +69,33 @@ void Mainmenu::print_menu() {
 	cout << "　　　　　　　　　　　　　3. 蟹亜奄" << endl;
 	cout << endl << endl;
 	cout << "　------------------------------------------------------------" << endl;
+}
+
+
+#define START 49
+#define CHALL 50
+#define END 51
+
+int Mainmenu::select_challenge_menu() {
+	cout << "1.c1    2.c2    3.c3";
+	int ret = 0;
+	while (1) {
+		char c = _getch();
+		switch (c) {
+		case START:
+			ret = 1;
+			break;
+		case CHALL:
+			ret = 2;
+			break;
+		case END:
+			ret = 3;
+			break;
+		default:
+			continue;
+		}
+		break;
+	}
+
+	return ret;
 }

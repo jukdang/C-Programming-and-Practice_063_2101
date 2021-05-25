@@ -3,7 +3,6 @@
 #include "Block.h"
 #include "Board.h"
 #include "Score.h"
-#include "KeyInput.h"
 #include "Pause.h"
 #include <iostream>
 
@@ -34,11 +33,12 @@ public:
 	Tetris() : board(&score), block(&board), next_block(&board), keep_block(&board), score(&speed), pause(&running) {
 		running = true;
 		is_keeped = false;
+		can_use_keep = false;
 		speed = 5;
 		start_time = clock();
 	};
 
-	void run();
+	void run(int challenge);
 
 	double time_difference();
 

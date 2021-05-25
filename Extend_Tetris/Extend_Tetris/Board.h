@@ -32,9 +32,10 @@ public:
 	void erase_board(int y, int x);
 	int board_status(int y, int x);
 	void print_board();
-	void clear_board();
+	void clear_board(int challenge);
 	void erase_line();
 	bool check_gameover();
+	bool is_clear();
 
 	//ver.2 Ãß°¡
 	void print_pause();

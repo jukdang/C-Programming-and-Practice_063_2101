@@ -12,6 +12,7 @@ using namespace std;
 #define TABLE_Y 22
 #define TABLE_X 12
 #define SPACE 32
+#define CHALLENGE_CLEAR 10
 
 
 void Board::draw_board(int y, int x)
@@ -50,15 +51,6 @@ void Board::print_board()
 				gotoxy(i + 1, 2*j + 2);
 				cout << b2;
 			}
-		}
-	}
-}
-
-void Board::clear_board()
-{
-	for (int i = 1; i < TABLE_Y-1; i++) {
-		for (int j = 1; j < TABLE_X-1; j++) {
-			board[i][j] = 0;
 		}
 	}
 }
@@ -124,4 +116,61 @@ bool Board::check_gameover() // 알리님이 작성
 		}
 	}
 	return false;
+}
+
+bool Board::is_clear()
+{
+	int left_block = 0;
+	for (int i = 1; i < TABLE_Y - 1; i++) {
+		for (int j = 1; j < TABLE_X - 1; j++) {
+			if (board[i][j] != 0) left_block++;
+		}
+	}
+	if (left_block > CHALLENGE_CLEAR) return false;
+	gotoxy(10, 32);
+	cout << "Challenge";
+	gotoxy(11, 32);
+	cout << "  Clear!";
+
+	for (int i = TABLE_Y-1-1; i > 0; i--) {
+		for (int j = 1; j < TABLE_X - 1; j++) {
+			board[i][j] = 1;
+		}
+		print_board();
+		Sleep(80);
+	}
+
+	while (true) {
+		char c = _getch();
+		if (c == SPACE) break;
+	}
+
+	return true;
+
+}
+
+
+void Board::clear_board(int challenge)
+{
+	for (int i = 1; i < TABLE_Y - 1; i++) {
+		for (int j = 1; j < TABLE_X - 1; j++) {
+			board[i][j] = 0;
+		}
+	}
+	if (challenge == 1) {
+		board[TABLE_Y - 1 - 1][1] = board[TABLE_Y - 1 - 1][TABLE_X - 1 - 1] = 1;
+		board[TABLE_Y - 1 - 2][2] = board[TABLE_Y - 1 - 2][TABLE_X - 1 - 2] = 1;
+		board[TABLE_Y - 1 - 3][3] = board[TABLE_Y - 1 - 3][TABLE_X - 1 - 3] = 1;
+		board[TABLE_Y - 1 - 4][4] = board[TABLE_Y - 1 - 4][TABLE_X - 1 - 4] = 1;
+		board[TABLE_Y - 1 - 5][3] = board[TABLE_Y - 1 - 5][TABLE_X - 1 - 3] = 1;
+		board[TABLE_Y - 1 - 6][2] = board[TABLE_Y - 1 - 6][TABLE_X - 1 - 2] = 1;
+		board[TABLE_Y - 1 - 7][1] = board[TABLE_Y - 1 - 7][TABLE_X - 1 - 1] = 1;
+	}
+	else if (challenge == 1) {
+
+	}
+	else if (challenge == 1) {
+
+	}
+
 }
