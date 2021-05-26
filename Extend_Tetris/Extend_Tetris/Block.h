@@ -9,11 +9,8 @@ private:
 	int y;
 	int shape;
 	int direction;
-
 	bool stop;
-
 	Board* board;
-
 
 public:
 	Block(Board *board) {
@@ -25,22 +22,18 @@ public:
 		this->board = board;
 	}
 	//완성
-	bool can_place_on_board();
-	void draw_block();
-	void erase_block();
-	Block& create_block(int type);
-	bool is_stop();
-	void move_left();
-	void move_right();
-	void move_down();
-	void rotate_block();  
-
-	Block& get_block(Block* block);
-	Block& get_keep(Block* block);
-
-	void print_block(int y,int x, int print_type, bool valid);
-	
-
+	bool can_place_on_board(); //블럭을 놓을수 있는지 체크
+	void draw_block(); //보드에 블럭 그리기
+	void erase_block(); //보드에서 블럭 지우기
+	Block& create_block(int type); //새 블럭 생성
+	bool is_stop(); //블럭이 더 내려갈곳이없는지 체크
+	void move_left(); //moveleft
+	void move_right(); //moveright
+	void move_down(); //movedown
+	void rotate_block(); //블럭 회전
+	Block& get_block(Block* block); //next블럭->now블럭 가져오기
+	Block& get_keep(Block* block); //블럭 keep
+	void print_block(int y,int x, int print_type, bool valid); // keep, next블럭 보여주는 인터페이스
 	
 };
 

@@ -26,7 +26,6 @@ void Console_control();
 int main() {
 
 	
-
 	Tetris tetris;
 	Menu menu;
 	int loop = true;
@@ -64,16 +63,11 @@ int main() {
 
 }
 
-
-
-
-
-
 void Console_control()
 {
 	system("title Tetris"); //타이틀
 	system("color F0"); //배경색
-	system("mode con: cols=70 lines=30");
+	system("mode con: cols=70 lines=30"); //콘솔창 크기
 
 	
 	HANDLE hConsole;
@@ -81,7 +75,7 @@ void Console_control()
 
 	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-	ConsoleCursor.bVisible = 0; //Cursor Hide
+	ConsoleCursor.bVisible = 0; //커서 숨기기
 	ConsoleCursor.dwSize = 1;
 
 	SetConsoleCursorInfo(hConsole, &ConsoleCursor);

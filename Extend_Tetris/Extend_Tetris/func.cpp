@@ -36,10 +36,10 @@ void setColor(unsigned short text) {
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), bg + 6); //노랑
 		break;
 	case 7:
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), bg + 2); //
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), bg + 2); //진초
 		break;
 	case 8:
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), bg + 0); //
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), bg + 0); //검정
 		break;
 	}
 

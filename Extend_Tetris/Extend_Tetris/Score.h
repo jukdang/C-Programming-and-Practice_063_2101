@@ -1,4 +1,5 @@
 #pragma once
+
 class Score
 {
 private:
@@ -15,7 +16,7 @@ public:
 		this->level = level;
 	}
 
-	void score_up();
-	void print_score_speed();
-	void change_speed(int* level);
+	void score_up(); //점수+
+	void print_score_speed(); //점수,레벨 콘솔 출력
+	void change_speed(int* level); //level에 따른 speed조절
 };

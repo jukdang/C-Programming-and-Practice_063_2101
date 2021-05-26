@@ -1,14 +1,11 @@
 #pragma once
 
-#include <iostream>
-
 class Menu {
 private:
 	int menu[32][7];
 public:
-	int main_menu();
-	int challenge_menu();
-
-	void control_chal(char c, int* num);
-	void control_main(char c, int* num);
+	int main_menu(); //메인메뉴
+	int challenge_menu(); //챌린지 선택 메뉴
+	void control_main(char c, int* num); //메인메뉴 키보드 입력 컨트롤
+	void control_chal(char c, int* num); //챌린지 선택메뉴 키보드 입력 컨트롤
 };

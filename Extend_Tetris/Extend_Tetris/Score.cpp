@@ -13,11 +13,11 @@ namespace SPEED {
 	};
 }
 
-void Score::score_up() { //ver.2 추가
+void Score::score_up() { 
 	score += 200 / *speed;
 }
 
-void Score::print_score_speed() { //ver.2 추가
+void Score::print_score_speed() {
 	gotoxy(20, 30);
 	cout << " Level: ";
 	gotoxy(20, 39);

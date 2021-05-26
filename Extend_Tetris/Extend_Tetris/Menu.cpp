@@ -74,7 +74,7 @@ int Menu::main_menu() {
 	gotoxy(16, 28); cout << "나가기";
 	cout << endl << endl;
 	cout << "　------------------------------------------------------------" << endl;
-
+	//선택 커서 컨트롤화면
 	int ret = 0;
 	while (1) {
 		if (ret == 0) {
@@ -103,16 +103,15 @@ int Menu::main_menu() {
 			gotoxy(16, 24); cout << "▶";
 			gotoxy(16, 36); cout << "◀";
 		}
-
 		char c = _getch();
 		if (c == SELEC) {
 			break;
 		}
 		control_main(c, &ret);
 	}
+	//선택했을때
 	return ret;
 }
-
 
 int Menu::challenge_menu() {
 	system("cls");
@@ -169,68 +168,74 @@ int Menu::challenge_menu() {
 		cout << endl;
 	}
 
+	cout << endl << endl;
+	cout << "　------------------------------------------------------------";
+	gotoxy(24, 0);
+	cout << "　------------------------------------------------------------";
 
-	gotoxy(11, 28);
+	gotoxy(12, 28);
 	cout << "챌린지 1";
-	gotoxy(13, 28);
+	gotoxy(14, 28);
 	cout << "챌린지 2";
-	gotoxy(15, 28);
+	gotoxy(16, 28);
 	cout << "챌린지 3";
-	gotoxy(17, 28);
+	gotoxy(18, 28);
 	cout << "챌린지 4";
-	gotoxy(19, 28);
+	gotoxy(20, 28);
 	cout << "챌린지 5";
-	gotoxy(21, 28);
+	gotoxy(22, 28);
 	cout << " 나가기 ";
 	int ret = 0;
+
+	//선택 커서 컨트롤화면
 	while (1) {
 		if (ret == 0) {
-			gotoxy(11, 24); cout << "▶"; gotoxy(11, 37); cout << "◀";
-			gotoxy(13, 24); cout << "　"; gotoxy(13, 37); cout << "　";
-			gotoxy(15, 24); cout << "　"; gotoxy(15, 37); cout << "　";
-			gotoxy(17, 24); cout << "　"; gotoxy(17, 37); cout << "　";
-			gotoxy(19, 24); cout << "　"; gotoxy(19, 37); cout << "　";
-			gotoxy(21, 24); cout << "　"; gotoxy(21, 37); cout << "　";
+			gotoxy(12, 24); cout << "▶"; gotoxy(12, 37); cout << "◀";
+			gotoxy(14, 24); cout << "　"; gotoxy(14, 37); cout << "　";
+			gotoxy(16, 24); cout << "　"; gotoxy(16, 37); cout << "　";
+			gotoxy(18, 24); cout << "　"; gotoxy(18, 37); cout << "　";
+			gotoxy(20, 24); cout << "　"; gotoxy(20, 37); cout << "　";
+			gotoxy(22, 24); cout << "　"; gotoxy(22, 37); cout << "　";
 		}
 		else if (ret == 1) {
-			gotoxy(11, 24); cout << "  "; gotoxy(11, 37); cout << "  ";
-			gotoxy(13, 24); cout << "▶"; gotoxy(13, 37); cout << "◀";
-			gotoxy(15, 24); cout << "　"; gotoxy(15, 37); cout << "　";
-			gotoxy(17, 24); cout << "　"; gotoxy(17, 37); cout << "　";
-			gotoxy(19, 24); cout << "　"; gotoxy(19, 37); cout << "　";
-			gotoxy(21, 24); cout << "　"; gotoxy(21, 37); cout << "　";
+			gotoxy(12, 24); cout << "  "; gotoxy(12, 37); cout << "  ";
+			gotoxy(14, 24); cout << "▶"; gotoxy(14, 37); cout << "◀";
+			gotoxy(16, 24); cout << "　"; gotoxy(16, 37); cout << "　";
+			gotoxy(18, 24); cout << "　"; gotoxy(18, 37); cout << "　";
+			gotoxy(20, 24); cout << "　"; gotoxy(20, 37); cout << "　";
+			gotoxy(22, 24); cout << "　"; gotoxy(22, 37); cout << "　";
 		}
 		else if (ret == 2) {
-			gotoxy(11, 24); cout << "  "; gotoxy(11, 37); cout << "  ";
-			gotoxy(13, 24); cout << "　"; gotoxy(13, 37); cout << "　";
-			gotoxy(15, 24); cout << "▶"; gotoxy(15, 37); cout << "◀";
-			gotoxy(17, 24); cout << "　"; gotoxy(17, 37); cout << "　";
-			gotoxy(19, 24); cout << "　"; gotoxy(19, 37); cout << "　";
-			gotoxy(21, 24); cout << "　"; gotoxy(21, 37); cout << "　";
+			gotoxy(12, 24); cout << "  "; gotoxy(12, 37); cout << "  ";
+			gotoxy(14, 24); cout << "　"; gotoxy(14, 37); cout << "　";
+			gotoxy(16, 24); cout << "▶"; gotoxy(16, 37); cout << "◀";
+			gotoxy(18, 24); cout << "　"; gotoxy(18, 37); cout << "　";
+			gotoxy(20, 24); cout << "　"; gotoxy(20, 37); cout << "　";
+			gotoxy(22, 24); cout << "　"; gotoxy(22, 37); cout << "　";
 		}
 		else if (ret == 3) {
-			gotoxy(11, 24); cout << "  "; gotoxy(11, 37); cout << "  ";
-			gotoxy(13, 24); cout << "　"; gotoxy(13, 37); cout << "　";
-			gotoxy(15, 24); cout << "　"; gotoxy(15, 37); cout << "　";
-			gotoxy(17, 24); cout << "▶"; gotoxy(17, 37); cout << "◀";
-			gotoxy(19, 24); cout << "　"; gotoxy(19, 37); cout << "　";
-			gotoxy(21, 24); cout << "　"; gotoxy(21, 37); cout << "　";
+			gotoxy(12, 24); cout << "  "; gotoxy(12, 37); cout << "  ";
+			gotoxy(14, 24); cout << "　"; gotoxy(14, 37); cout << "　";
+			gotoxy(16, 24); cout << "　"; gotoxy(16, 37); cout << "　";
+			gotoxy(18, 24); cout << "▶"; gotoxy(18, 37); cout << "◀";
+			gotoxy(20, 24); cout << "　"; gotoxy(20, 37); cout << "　";
+			gotoxy(22, 24); cout << "　"; gotoxy(22, 37); cout << "　";
 		}
 		else if (ret == 4) {
-			gotoxy(11, 24); cout << "  "; gotoxy(11, 37); cout << "  ";
-			gotoxy(13, 24); cout << "　"; gotoxy(13, 37); cout << "　";
-			gotoxy(15, 24); cout << "　"; gotoxy(15, 37); cout << "　";
-			gotoxy(17, 24); cout << "　"; gotoxy(17, 37); cout << "　";
-			gotoxy(19, 24); cout << "▶"; gotoxy(19, 37); cout << "◀";
-			gotoxy(21, 24); cout << "　"; gotoxy(21, 37); cout << "　";
+			gotoxy(12, 24); cout << "  "; gotoxy(12, 37); cout << "  ";
+			gotoxy(14, 24); cout << "　"; gotoxy(14, 37); cout << "　";
+			gotoxy(16, 24); cout << "　"; gotoxy(16, 37); cout << "　";
+			gotoxy(18, 24); cout << "　"; gotoxy(18, 37); cout << "　";
+			gotoxy(20, 24); cout << "▶"; gotoxy(20, 37); cout << "◀";
+			gotoxy(22, 24); cout << "　"; gotoxy(22, 37); cout << "　";
 		}
 		else if (ret == 5) {
-			gotoxy(11, 24); cout << "  "; gotoxy(11, 37); cout << "  ";
-			gotoxy(13, 24); cout << "　"; gotoxy(13, 37); cout << "　";
-			gotoxy(15, 24); cout << "　"; gotoxy(15, 37); cout << "　";
-			gotoxy(17, 24); cout << "　"; gotoxy(17, 37); cout << "　";
-			gotoxy(19, 24); cout << "　"; gotoxy(19, 37); cout << "　";
-			gotoxy(21, 24); cout << "▶"; gotoxy(21, 37); cout << "◀";
+			gotoxy(12, 24); cout << "  "; gotoxy(12, 37); cout << "  ";
+			gotoxy(14, 24); cout << "　"; gotoxy(14, 37); cout << "　";
+			gotoxy(16, 24); cout << "　"; gotoxy(16, 37); cout << "　";
+			gotoxy(18, 24); cout << "　"; gotoxy(18, 37); cout << "　";
+			gotoxy(20, 24); cout << "　"; gotoxy(20, 37); cout << "　";
+			gotoxy(22, 24); cout << "▶"; gotoxy(22, 37); cout << "◀";
 		}
 
 		char c = _getch();
@@ -239,7 +244,7 @@ int Menu::challenge_menu() {
 		}
 		control_chal(c, &ret);
 	}
-
+	//선택했을때
 	return ret+1;
 }
 

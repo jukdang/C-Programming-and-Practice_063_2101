@@ -9,13 +9,10 @@
 #include <Windows.h>
 using namespace std;
 
-
 #define TABLE_Y 22
 #define TABLE_X 12
-#define SPACE 32
+#define ESC 27
 #define CHALLENGE_CLEAR 10
-
-
 
 void Board::draw_board(int y, int x,int color)
 {
@@ -31,7 +28,6 @@ int Board::board_status(int y, int x)
 {
 	return this->board[y][x];
 }
-
 
 void Board::print_board()
 {
@@ -60,7 +56,6 @@ void Board::print_board()
 	}
 }
 
-// 알리님 작성 + 강찬석 작성
 void Board::erase_line()  
 {
 	for (int Y = 1; Y < TABLE_Y - 1; Y++) { 
@@ -68,8 +63,9 @@ void Board::erase_line()
 		for (int X = 1; X < TABLE_X - 1; X++) { 
 			if (board[Y][X] == 0) isLinear = false; 
 		}
+		//한줄이 꽉 채워졌을때
 		if (isLinear) {
-			// special effect - 강찬석 작성
+			//이펙트
 			for (int i = 0; i < 3; i++) {
 				for (int j = 1; j < TABLE_X - 1; j++) {
 					board[Y][j] = 0;
@@ -82,16 +78,16 @@ void Board::erase_line()
 				print_board();
 				Sleep(80);
 			}
-			// special effect end
-			// 알리님 작성
+			//줄 지우고 한칸씩 내리기
 			for (int i = Y; i > 1; i--) { 
 				for (int j = 1; j < TABLE_X - 1; j++) {
 					board[i][j] = board[i - 1][j]; 
 				}
 			}
 			print_board();
+			//점수추가 및 레벨 조정
 			score->score_up();
-			*line += 1; //추가
+			*line += 1; 
 			if (*line == 5) { // 라인 몇개당 레벨 올릴지
 				*line = 0;
 				*level += 1;
@@ -104,13 +100,13 @@ void Board::erase_line()
 	}
 }
 
-bool Board::check_gameover() // 알리님이 작성
+bool Board::check_gameover()
 {
 	for (int X = 1; X < TABLE_X - 1; X++) {
 		if (board[5][X] != 0) {
+			//이펙트
 			gotoxy(10, 32);
 			cout << "GAME OVER!";
-
 			for (int i = 5; i > 0; i--) {
 				for (int j = 1; j < TABLE_X - 1; j++) {
 					board[i][j] = 8;
@@ -119,10 +115,10 @@ bool Board::check_gameover() // 알리님이 작성
 				Sleep(80);
 			}
 
-
+			//esc누르면 메인메뉴로 돌아가기
 			while (true) {
 				char c = _getch();
-				if (c == SPACE) break;
+				if (c == ESC) break;
 			}
 
 			return true;
@@ -133,13 +129,17 @@ bool Board::check_gameover() // 알리님이 작성
 
 bool Board::is_clear()
 {
+	//남아있는 블럭수 체크
 	int left_block = 0;
 	for (int i = 1; i < TABLE_Y - 1; i++) {
 		for (int j = 1; j < TABLE_X - 1; j++) {
 			if (board[i][j] != 0) left_block++;
 		}
 	}
+	//클리어 조건
 	if (left_block > CHALLENGE_CLEAR) return false;
+
+	//이펙트
 	gotoxy(10, 32);
 	cout << "Challenge";
 	gotoxy(11, 32);
@@ -152,16 +152,15 @@ bool Board::is_clear()
 		print_board();
 		Sleep(80);
 	}
-
+	//esc누르면 메인메뉴로 돌아가기
 	while (true) {
 		char c = _getch();
-		if (c == SPACE) break;
+		if (c == ESC) break;
 	}
 
 	return true;
 
 }
-
 
 void Board::clear_board(int challenge)
 {
@@ -170,6 +169,7 @@ void Board::clear_board(int challenge)
 			board[i][j] = 0;
 		}
 	}
+	//챌린지 일경우 보드 초기화
 	if (challenge == 1) {
 		board[TABLE_Y - 1 - 1][1] = board[TABLE_Y - 1 - 1][TABLE_X - 1 - 1] = 1;
 		board[TABLE_Y - 1 - 2][2] = board[TABLE_Y - 1 - 2][TABLE_X - 1 - 2] = 1;

@@ -2,6 +2,8 @@
 
 #include "Pause.h"
 #include "func.h"
+
+#include <conio.h>
 #include <iostream>
 
 #define PLAY 0
@@ -17,7 +19,7 @@ void Pause::print_pause()
 {
 	system("cls");
 
-	char b0[4] = { "　" };
+	char b0[4] = { "　" }; 
 	char b1[4] = { "□" }; //-1, 테두리
 	char b2[4] = { "■" }; //-2, pause 글씨
 
@@ -84,6 +86,8 @@ void Pause::print_pause()
 	cout << "이어서";
 	gotoxy(14, 26);
 	cout << "메인메뉴로";
+
+	//선택 커서 컨트롤화면
 	int select = 0;
 	while (1) {
 		if (select == 0) {
@@ -105,7 +109,7 @@ void Pause::print_pause()
 		}
 		con_or_esc(c, &select);
 	}
-
+	//선택했을때
 	switch (abs(select)%2)
 	{
 	case PLAY:
@@ -127,11 +131,11 @@ void Pause::con_or_esc(char c, int*num) {
 			(*num)--;
 		}
 		else {
-			(*num) = 2;
+			(*num) = 1;
 		}
 		break;
 	case DOWN:
-		if ((*num) < 2) {
+		if ((*num) < 1) {
 			(*num)++;
 		}
 		else {

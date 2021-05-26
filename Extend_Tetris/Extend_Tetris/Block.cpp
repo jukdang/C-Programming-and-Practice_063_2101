@@ -2,28 +2,26 @@
 
 #include "Block.h"
 #include "Board.h"
-#include "gotoxy.h"
+#include "func.h"
 
 #include <iostream>
 
-
 int block_list[7][4][4][2] = {
-	//O미노 : 1
+	//O미노 : 0
 	{ { {0,0},{1,0},{0,1},{1,1} }, { {0,0},{1,0},{0,1},{1,1} }, { {0,0},{1,0},{0,1},{1,1} }, { {0,0},{1,0},{0,1},{1,1} } },
-	//I미노 : 2
+	//I미노 : 1
 	{ { {0,-1},{0,0},{0,1},{0,2} }, { {0,0},{1,0},{-1,0},{-2,0} }, { {0,-1},{0,0},{0,1},{0,2} }, { {0,0},{1,0},{-1,0},{-2,0} } },
-	//Z미노 : 3
+	//Z미노 : 2
 	{ { {0,0},{-1,0},{0,1},{1,1} }, { {0,0},{0,1},{1,0},{1,-1} }, { {0,0},{-1,0},{0,1},{1,1} }, { {0,0},{0,1},{1,0},{1,-1} } },
-	//S미노 : 4
+	//S미노 : 3
 	{ { {0,0},{1,0},{0,1},{-1,1} }, { {0,0},{0,-1},{1,0},{1,1} }, { {0,0},{1,0},{0,1},{-1,1} }, { {0,0},{0,-1},{1,0},{1,1} }  },
-	//J미노 : 5
+	//J미노 : 4
 	{ { {1,0},{1,1},{0,1},{-1,1} }, { {0,0},{-1,0},{0,1},{0,2} }, { {0,1},{1,1},{-1,1},{-1,2} }, { {0,1},{0,0},{0,2},{1,2} } },
-	//L미노 : 6
+	//L미노 : 5
 	{ { {0,0},{1,0},{-1,0},{1,1} }, { {0,0},{0,-1},{0,1},{1,-1} }, { {-1,-1},{-1,0},{0,0},{1,0} }, { {0,0},{0,-1},{0,1},{-1,1} } },
-	//T미노 : 7
+	//T미노 : 6
 	{ { {0,0},{0,1},{-1,1},{1,1} }, { {0,0},{1,0},{1,1},{1,-1} }, { {0,0},{0,-1},{-1,-1},{1,-1} }, { {0,0},{-1,0},{-1,1},{-1,-1} } },
 };
-
 
 bool Block::can_place_on_board()
 {
@@ -67,21 +65,21 @@ Block& Block::create_block(int type)
 	return *this;
 }
 
-void Block::rotate_block() // 편경찬 작성
+void Block::rotate_block() 
 {
 
-	Block::erase_block();  // 일단 지우고 
+	Block::erase_block();  // 일단 지우기
 
-	direction = direction + 1;		// 모양도 돌려놓고 
+	direction = direction + 1;	// 모양 돌리기 
 	if (direction == 4)
 		direction = 0;
 
-	if (Block::can_place_on_board())	 	//true면 돌린 모양 그리고 
+	if (Block::can_place_on_board())	//true면 돌린 모양 그리기
 		Block::draw_block();
 
 	else
 	{
-		direction = direction - 1;		//false면 돌리기전 모양 그리고 
+		direction = direction - 1;	//false면 돌리기전 모양 그리기
 		Block::draw_block();
 	}
 }
@@ -96,6 +94,7 @@ Block& Block::get_block(Block* block)
 
 	return *this;
 }
+
 Block& Block::get_keep(Block* block)
 {
 	this->direction = 0;
@@ -107,6 +106,7 @@ Block& Block::get_keep(Block* block)
 
 void Block::print_block(int y, int x, int print_type, bool valid)
 {
+	//테두리 그리기
 	if (print_type == 1) {
 		gotoxy(y, x); std::cout << "□□Next□□";
 	}
@@ -117,7 +117,7 @@ void Block::print_block(int y, int x, int print_type, bool valid)
 		gotoxy(y + i, x); std::cout << "□        □";
 	}
 	gotoxy(y+4, x); std::cout << "□□□□□□";
-
+	//블럭 그리기
 	if (valid) {
 		for (int i = 0; i < 4; i++) {
 			gotoxy(y + 2 + block_list[shape][0][i][0], x + 4 + block_list[shape][0][i][1] * 2);
