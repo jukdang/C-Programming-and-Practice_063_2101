@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Tetris.h"
-#include "gotoxy.h"
+#include "func.h"
 #include "Menu.h"
 
 #include <iostream>
@@ -21,13 +21,12 @@
 
 using namespace std;
 
-void CursorView(char show);
+void Console_control();
 void control_cur(char c, int* num);
 
 int main() {
 
 	
-	CursorView(0);
 
 	Tetris tetris;
 	Menu menu;
@@ -37,6 +36,7 @@ int main() {
 		int challenge = 0;
 		int num = 0;
 		system("cls");
+		Console_control();
 		menu.main_menu();
 		while (1) {
 			if (num == 0) {
@@ -104,14 +104,19 @@ int main() {
 
 
 
-void CursorView(char show)//커서숨기기
+void Console_control()
 {
+	system("title Tetris"); //타이틀
+	system("color F0"); //배경색
+	system("mode con: cols=70 lines=30");
+
+	
 	HANDLE hConsole;
 	CONSOLE_CURSOR_INFO ConsoleCursor;
 
 	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-	ConsoleCursor.bVisible = show;
+	ConsoleCursor.bVisible = 0; //Cursor Hide
 	ConsoleCursor.dwSize = 1;
 
 	SetConsoleCursorInfo(hConsole, &ConsoleCursor);

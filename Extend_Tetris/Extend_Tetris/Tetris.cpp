@@ -2,7 +2,7 @@
 
 #include "Tetris.h"
 #include "Block.h"
-#include "gotoxy.h"
+#include "func.h"
 #include "Pause.h"
 
 #include <cstdlib>
@@ -18,7 +18,7 @@
 #define RIGHT 77
 #define KEEP 107
 #define SPACE 32
-#define PAUSE 112
+#define PAUSE 27
 #define CLOCK_PER_SEC 100
 
 void Tetris::run(int challenge) // ¿œπ›

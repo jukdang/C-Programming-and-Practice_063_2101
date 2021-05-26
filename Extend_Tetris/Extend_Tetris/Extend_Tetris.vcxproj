@@ -141,7 +141,7 @@
   <ItemGroup>
     <ClCompile Include="Block.cpp" />
     <ClCompile Include="Board.cpp" />
-    <ClCompile Include="gotoxy.cpp" />
+    <ClCompile Include="func.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Pause.cpp" />
     <ClCompile Include="Score.cpp" />
@@ -157,7 +157,7 @@
     <ClInclude Include="Tetris.h">
       <DeploymentContent>false</DeploymentContent>
     </ClInclude>
-    <ClInclude Include="gotoxy.h" />
+    <ClInclude Include="func.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\Readme.txt" />

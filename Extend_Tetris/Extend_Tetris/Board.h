@@ -32,7 +32,7 @@ public:
 		this->level = level;
 	};
 
-	void draw_board(int y, int x);
+	void draw_board(int y, int x, int color);
 	void erase_board(int y, int x);
 	int board_status(int y, int x);
 	void print_board();

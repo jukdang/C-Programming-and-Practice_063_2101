@@ -1,7 +1,5 @@
 #pragma once
 
-#include "gotoxy.h"
-
 #include <conio.h>
 
 class Pause {

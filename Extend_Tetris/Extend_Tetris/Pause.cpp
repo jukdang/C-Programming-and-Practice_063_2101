@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Pause.h"
+#include "func.h"
 #include <iostream>
 
 #define PLAY 0

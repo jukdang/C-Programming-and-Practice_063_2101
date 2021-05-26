@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Menu.h"
-#include "gotoxy.h"
+#include "func.h"
 #include <iostream>
 #include <conio.h>
 

@@ -30,7 +30,7 @@
     <ClCompile Include="Score.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="gotoxy.cpp">
+    <ClCompile Include="func.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Pause.cpp">
@@ -53,7 +53,7 @@
     <ClInclude Include="Score.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="gotoxy.h">
+    <ClInclude Include="func.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Pause.h">
