@@ -64,7 +64,14 @@ void Board::erase_line()
 			if (board[Y][X] == 0) isLinear = false; 
 		}
 		if (isLinear) {
-			
+			score->score_up();
+			*line += 1; //추가
+			if (*line == 1) { // 라인 몇개당 레벨 올릴지
+				*line = 0;
+				*level += 1;
+				score->change_speed(level);
+			}
+
 			// special effect - 강찬석 작성
 			for (int i = 0; i < 3; i++) {
 				for (int j = 1; j < TABLE_X - 1; j++) {
@@ -85,8 +92,6 @@ void Board::erase_line()
 					board[i][j] = board[i - 1][j]; 
 				}
 			}
-
-			score->score_up();
 		}
 	}
 }

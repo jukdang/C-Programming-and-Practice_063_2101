@@ -11,9 +11,11 @@ private:
 	// -1 : 테두리
 	Score* score;
 
+	int* line;
+	int* level;
 public:
 
-	Board(Score* score) { //ver.2 추가
+	Board(Score* score, int* line, int* level) { //ver.2 추가
 		for (int i = 0; i < 12; i++) {
 			board[0][i] = board[21][i] = -1;
 		}
@@ -26,6 +28,8 @@ public:
 			}
 		}
 		this->score = score;
+		this->line = line;
+		this->level = level;
 	};
 
 	void draw_board(int y, int x);

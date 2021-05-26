@@ -25,17 +25,21 @@ private:
 	bool can_use_keep;
 	
 	int speed;
+	int line; //추가
+	int level; //추가
 
 	clock_t start_time;
 
 public:
 
-	Tetris() : board(&score), block(&board), next_block(&board), keep_block(&board), score(&speed), pause(&running) {
+	Tetris() : board(&score, &line, &level), block(&board), next_block(&board), keep_block(&board), score(&speed, &line, &level), pause(&running) {
 		running = true;
 		is_keeped = false;
 		can_use_keep = false;
 		speed = 5;
 		start_time = clock();
+		line = 0; //추가
+		level = 1; //추가
 	};
 
 	void run(int challenge);

@@ -138,6 +138,6 @@ void Tetris::print_screen()
 	board.print_board();
 	next_block.print_block(1, 30, 1, true); // print_type=1, next;
 	keep_block.print_block(14, 30, 2, is_keeped); // print_type=2, keep;
-	score.print_score();
+	score.print_score_speed();
 	gotoxy(0, 0);
 }
