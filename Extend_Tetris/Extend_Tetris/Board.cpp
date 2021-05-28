@@ -170,6 +170,7 @@ bool Board::is_clear()
 	if (left_block > CHALLENGE_CLEAR) return false;
 
 	//ÀÌÆåÆ®
+	score->print_brick_speed();
 	gotoxy(3, 12);
 	cout << "CLEAR!";
 	for (int i = TABLE_Y - 1 - 1; i > 0; i--) {
@@ -311,4 +312,10 @@ void Board::print_how_to(clock_t start_t) {
 		cout << play_s;
 	}
 	
+}
+
+void Board::reset_time()
+{
+	pause_tt = 0;
+	pause_o = 0;
 }

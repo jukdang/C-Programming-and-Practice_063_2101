@@ -4,6 +4,7 @@
 #include "Board.h"
 #include "Score.h"
 #include "Pause.h"
+#include <time.h>
 #include <iostream>
 
 class Tetris
@@ -25,7 +26,7 @@ private:
 	int level;
 	clock_t count_time;
 	clock_t start_t;
-	int pause_t;
+	clock_t pause_t;
 
 public:
 	Tetris() : board(&score, &line, &level, &challenge, &pause_t), block(&board), next_block(&board), keep_block(&board), score(&speed, &line, &level), pause(&running) {
@@ -43,7 +44,7 @@ public:
 	double time_difference(); //시간차 확인
 	void process_key(char c); //키입력 처리
 	void print_screen(); //콘솔 화면 출력
-	int get_pause_t();
+	clock_t get_pause_t();
 
 };
 

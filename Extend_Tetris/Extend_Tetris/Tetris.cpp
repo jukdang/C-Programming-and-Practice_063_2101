@@ -40,8 +40,10 @@ void Tetris::run(int challenge_num)
 	block.create_block(rand() % 7).draw_block(); 
 	next_block.create_block(rand() % 7); 
 
+	//시간초기화
 	start_t = clock();
 	pause_t = 0;
+	board.reset_time();
 	while (running) {
 		//키입력이 있으면 키입력 처리
 		if (_kbhit()) {
@@ -166,6 +168,6 @@ void Tetris::print_screen()
 	board.print_how_to(start_t);
 }
 //김채원 작성
-int Tetris::get_pause_t() {
+clock_t Tetris::get_pause_t() {
 	return pause_t;
 }

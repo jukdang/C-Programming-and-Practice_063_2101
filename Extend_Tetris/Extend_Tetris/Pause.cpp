@@ -15,7 +15,7 @@
 
 using namespace std;
 //김채원 작성, 강찬석 수정
-int Pause::print_pause()
+clock_t Pause::print_pause()
 {
 	system("cls");
 	clock_t pause_s = clock();
@@ -111,7 +111,7 @@ int Pause::print_pause()
 		con_or_esc(c, &select);
 	}
 	clock_t pause_f = clock();
-	int pause_t = 0;
+	clock_t pause_t = 0;
 	//선택했을때
 	switch (abs(select)%2)
 	{
