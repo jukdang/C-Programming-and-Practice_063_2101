@@ -12,24 +12,66 @@ namespace SPEED {
 		LEVEL1 = 7, LEVEL2 = 6, LEVEL3 = 5, LEVEL4 = 4, LEVEL5 = 3, LEVEL6 = 2, LEVEL7 = 1
 	};
 }
-
-void Score::score_up() { 
+//김채원 작성
+void Score::score_up() {
 	score += 200 / *speed;
 }
+//김채원 작성, 강찬석 수정
+void Score::print_score_level() {
+	//테두리
+	gotoxy(14, 52);
+	cout << "□□레벨□□";
+	for (int i = 0; i <= 3; i++) {
+		gotoxy(15 + i, 52);
+		cout << "□　　　　□";
+	}
+	
+	gotoxy(18, 52);
+	cout << "□□점수□□";
+	for (int i = 0; i <= 3; i++) {
+		gotoxy(19 + i, 52);
+		cout << "□　　　　□";
+	}
+	gotoxy(22, 52);
+	cout << "□□□□□□";
 
-void Score::print_score_speed() {
-	gotoxy(20, 30);
-	cout << " Level: ";
-	gotoxy(20, 39);
+	//내용
+	gotoxy(16, 58);
 	cout << *level;
-	gotoxy(21, 30);
-	cout << " Score : "; 
-	cout << score; 
-	gotoxy(22, 30); //나중에 삭제할 부분 게임하면서 스피드 확인하려고 잠깐 넣어둠
-	cout << " Speed: ";
-	cout << *speed;
+	if (score != 0) {
+		gotoxy(20, 56);
+	}
+	else {
+		gotoxy(20, 58);
+	}
+	cout << score;
 }
+//김채원 작성, 강찬석 수정
+void Score::print_brick_speed() {
+	//테두리
+	gotoxy(14, 52);
+	cout << "□□속도□□";
+	for (int i = 0; i <= 3; i++) {
+		gotoxy(15 + i, 52);
+		cout << "□　　　　□";
+	}
 
+	gotoxy(18, 52);
+	cout << "□남은블럭□";
+	for (int i = 0; i <= 3; i++) {
+		gotoxy(19 + i, 52);
+		cout << "□　　　　□";
+	}
+	gotoxy(22, 52);
+	cout << "□□□□□□";
+
+	//내용
+	gotoxy(16, 58);
+	cout << *level;
+	gotoxy(20, 54);
+	cout << " "<< left_block<<"/10";
+}
+//김채원 작성
 void Score::change_speed(int* level) {
 	if (*level == 1) {
 		*speed = SPEED::LEVEL1;
@@ -52,4 +94,17 @@ void Score::change_speed(int* level) {
 	if (*level == 7) {
 		*speed = SPEED::LEVEL7;
 	}
+}
+//강찬석 작성
+void Score::get_left_block(int num)
+{
+	left_block = num;
+}
+//강찬석 작성
+void Score::reset_score()
+{
+	score = 0;
+	*line = 0;
+	*level = SPEED::LEVEL7;
+	change_speed(level);
 }

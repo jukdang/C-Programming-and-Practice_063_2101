@@ -5,7 +5,7 @@
 #include "func.h"
 
 #include <iostream>
-
+//강찬석 작성
 int block_list[7][4][4][2] = {
 	//O미노 : 0
 	{ { {0,0},{1,0},{0,1},{1,1} }, { {0,0},{1,0},{0,1},{1,1} }, { {0,0},{1,0},{0,1},{1,1} }, { {0,0},{1,0},{0,1},{1,1} } },
@@ -22,7 +22,7 @@ int block_list[7][4][4][2] = {
 	//T미노 : 6
 	{ { {0,0},{0,1},{-1,1},{1,1} }, { {0,0},{1,0},{1,1},{1,-1} }, { {0,0},{0,-1},{-1,-1},{1,-1} }, { {0,0},{-1,0},{-1,1},{-1,-1} } },
 };
-
+//강찬석 작성
 bool Block::can_place_on_board()
 {
 	for (int i = 0; i < 4; i++) {
@@ -34,7 +34,7 @@ bool Block::can_place_on_board()
 	
 	return true;;
 }
-
+//강찬석 작성
 void Block::draw_block()
 {
 	for (int i = 0; i < 4; i++) {
@@ -44,7 +44,7 @@ void Block::draw_block()
 		board->draw_board(ny, nx, shape);
 	}
 }
-
+//강찬석 작성
 void Block::erase_block()
 {
 	for (int i = 0; i < 4; i++) {
@@ -54,7 +54,7 @@ void Block::erase_block()
 		board->erase_board(ny, nx);
 	}
 }
-
+//강찬석 작성
 Block& Block::create_block(int type)
 {
 	x = 5;
@@ -64,7 +64,7 @@ Block& Block::create_block(int type)
 	stop = false;
 	return *this;
 }
-
+//편경찬 작성, 강찬석 수정
 void Block::rotate_block() 
 {
 
@@ -83,7 +83,7 @@ void Block::rotate_block()
 		Block::draw_block();
 	}
 }
-
+//강찬석 작성
 Block& Block::get_block(Block* block)
 {
 	this->x = block->x;
@@ -94,7 +94,7 @@ Block& Block::get_block(Block* block)
 
 	return *this;
 }
-
+//강찬석 작성
 Block& Block::get_keep(Block* block)
 {
 	this->direction = 0;
@@ -103,7 +103,7 @@ Block& Block::get_keep(Block* block)
 
 	return *this;
 }
-
+//강찬석 작성
 void Block::print_block(int y, int x, int print_type, bool valid)
 {
 	//테두리 그리기
@@ -129,8 +129,8 @@ void Block::print_block(int y, int x, int print_type, bool valid)
 	
 	
 }
-
-void Block::move_down() //김채원 작성
+//김채원 작성
+void Block::move_down() 
 {
 	erase_block();
 	this->y += 1;
@@ -143,8 +143,8 @@ void Block::move_down() //김채원 작성
 		draw_block();
 	}
 }
-
-void Block::move_left() //김채원 작성
+//김채원 작성
+void Block::move_left() 
 {
 	erase_block();
 	this->x -= 1;
@@ -156,8 +156,8 @@ void Block::move_left() //김채원 작성
 		draw_block();
 	}
 }
-
-void Block::move_right() //김채원 작성
+//김채원 작성
+void Block::move_right() 
 {
 	erase_block();
 	this->x += 1;
@@ -169,7 +169,7 @@ void Block::move_right() //김채원 작성
 		draw_block();
 	}
 }
-
+//강찬석 작성
 bool Block::is_stop()
 {
 	if (stop) return true;

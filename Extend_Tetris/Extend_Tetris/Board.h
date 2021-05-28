@@ -1,5 +1,7 @@
 #pragma once
 
+#include <time.h>
+
 #include "Score.h"
 
 class Board
@@ -12,9 +14,13 @@ private:
 	Score* score;
 	int* line;
 	int* level;
+	int* challenge;
+	int* pause_t;
+	int pause_tt;
+	int pause_o;
 
 public:
-	Board(Score* score, int* line, int* level) {
+	Board(Score* score, int* line, int* level, int* challenge, int* pause_t) {
 		//테두리
 		for (int i = 0; i < 12; i++) {
 			board[0][i] = board[21][i] = -1;
@@ -28,9 +34,13 @@ public:
 			}
 		}
 
+		this->challenge = challenge;
 		this->score = score;
 		this->line = line;
 		this->level = level;
+		this->pause_t = pause_t;
+		pause_tt = 0;
+		pause_o = 0;
 	};
 
 	void draw_board(int y, int x, int color); //블럭 보드에 그리기
@@ -41,5 +51,5 @@ public:
 	void erase_line(); //한줄 지우기
 	bool check_gameover(); //게임오버 체크
 	bool is_clear(); //챌린지에서 클리어 조건 체크
-
+	void print_how_to(clock_t start_t);
 };

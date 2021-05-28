@@ -14,10 +14,11 @@
 #define SELEC 13
 
 using namespace std;
-
-void Pause::print_pause()
+//김채원 작성, 강찬석 수정
+int Pause::print_pause()
 {
 	system("cls");
+	clock_t pause_s = clock();
 
 	char b0[4] = { "　" }; 
 	char b1[4] = { "□" }; //-1, 테두리
@@ -109,21 +110,27 @@ void Pause::print_pause()
 		}
 		con_or_esc(c, &select);
 	}
+	clock_t pause_f = clock();
+	int pause_t = 0;
 	//선택했을때
 	switch (abs(select)%2)
 	{
 	case PLAY:
 		system("cls");
+		pause_f = clock();
+		pause_t = pause_f - pause_s;
 		break;
 	case EXIT:
 		system("cls");
 		*running = false;
+		pause_t = 0;
 		break;
 	default:
 		break;
 	}
+	return pause_t;
 }
-
+//김채원 작성
 void Pause::con_or_esc(char c, int*num) {
 	switch (c) {
 	case UP:

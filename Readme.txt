@@ -15,3 +15,6 @@ Readme
 2.0.0 color_version
 2.0.1  +edit(challengeMenu)
         --file 정리
+
+        +디자인 수정, 플레이타임, 
+release 1.0.0

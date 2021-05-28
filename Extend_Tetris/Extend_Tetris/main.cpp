@@ -22,19 +22,18 @@
 using namespace std;
 
 void Console_control();
-
+//강찬석 작성, 김채원 수정
 int main() {
 
-	
+	Console_control();
 	Tetris tetris;
 	Menu menu;
 	int loop = true;
 
 	while (loop) {
-		int challenge = 0;
 		system("cls");
-		Console_control();
 		
+		int challenge = 0;
 		int select = 0;
 		select= menu.main_menu();
 
@@ -62,12 +61,12 @@ int main() {
 
 
 }
-
+//강찬석 작성
 void Console_control()
 {
 	system("title Tetris"); //타이틀
 	system("color F0"); //배경색
-	system("mode con: cols=70 lines=30"); //콘솔창 크기
+	system("mode con: cols=70 lines=26"); //콘솔창 크기
 
 	
 	HANDLE hConsole;

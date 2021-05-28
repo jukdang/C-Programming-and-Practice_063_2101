@@ -3,14 +3,14 @@
 #include "func.h"
 
 #include <Windows.h>
-
+//강찬석 작성
 void gotoxy(int y, int x) {
 	COORD point;
 	point.X = x;
 	point.Y = y;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), point);
 }
-
+//강찬석 작성
 void setColor(unsigned short text) {
 	int bg = 240; //240하양
 	switch (text) {

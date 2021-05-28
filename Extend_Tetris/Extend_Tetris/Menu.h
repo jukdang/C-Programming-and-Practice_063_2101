@@ -2,7 +2,7 @@
 
 class Menu {
 private:
-	int menu[32][7];
+	int menu[34][7];
 public:
 	int main_menu(); //메인메뉴
 	int challenge_menu(); //챌린지 선택 메뉴

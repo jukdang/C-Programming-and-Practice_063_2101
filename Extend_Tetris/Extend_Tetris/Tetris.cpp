@@ -20,21 +20,28 @@
 #define SPACE 32
 #define ESC 27
 #define CLOCK_PER_SEC 100
-
-void Tetris::run(int challenge)
+//강찬석,김채원 작성
+void Tetris::run(int challenge_num)
 {
 	srand((unsigned int)time(NULL));
-	start_time = clock();
-
+	count_time = clock();
+	
+	//변수 초기화
+	challenge = challenge_num;
 	running = true;
 	is_keeped = false;
 	can_use_keep = true;
+	
+	score.reset_score(); //점수관련부 초기화
+
 	board.clear_board(challenge); //최초 보드 초기화
 
-	//블럭생성
+	//블럭 생성 및 초기화
 	block.create_block(rand() % 7).draw_block(); 
 	next_block.create_block(rand() % 7); 
-	
+
+	start_t = clock();
+	pause_t = 0;
 	while (running) {
 		//키입력이 있으면 키입력 처리
 		if (_kbhit()) {
@@ -47,7 +54,7 @@ void Tetris::run(int challenge)
 			if (time_difference() / CLOCK_PER_SEC > speed) {
 				block.move_down();
 
-				start_time = clock();
+				count_time = clock();
 
 				print_screen();
 			}
@@ -77,13 +84,13 @@ void Tetris::run(int challenge)
 	}
 
 }
-
+//강찬석 작성
 double Tetris::time_difference()
 {
 	clock_t now_time = clock();
-	return now_time - start_time;
+	return now_time - count_time;
 }
-
+//강찬석 작성
 void Tetris::process_key(char c)
 {
 	switch (c)
@@ -101,7 +108,7 @@ void Tetris::process_key(char c)
 		block.move_right();
 		break;
 	case ESC: 
-		pause.print_pause();
+		pause_t = pause.print_pause();
 		break;
 	case SPACE: 
 		//킵횟수 확인
@@ -143,12 +150,22 @@ void Tetris::process_key(char c)
 		break;
 	}
 }
-
+//강찬석,김채원 작성
 void Tetris::print_screen()
 {
 	board.print_board();
-	next_block.print_block(1, 30, 1, true); 
-	keep_block.print_block(14, 30, 2, is_keeped); 
-	score.print_score_speed();
+	next_block.print_block(1, 52, 1, true);
+	keep_block.print_block(7, 52, 2, is_keeped);
+	if (challenge==0) {
+		score.print_score_level();
+	}
+	else {
+		score.print_brick_speed(); 
+	}
 	gotoxy(0, 0);
+	board.print_how_to(start_t);
+}
+//김채원 작성
+int Tetris::get_pause_t() {
+	return pause_t;
 }
