@@ -32,8 +32,9 @@ public:
 	void move_down(); //movedown
 	void rotate_block(); //블럭 회전
 	Block& get_block(Block* block); //next블럭->now블럭 가져오기
-	Block& get_keep(Block* block); //블럭 keep
+	void get_keep(Block* after, Block* now); 
 	void print_block(int y,int x, int print_type, bool valid); // keep, next블럭 보여주는 인터페이스
+	void keeping(bool *can_use_keep, bool *is_keeped, Block *next_block, Block *keep_block);
 	
 };
 

@@ -313,7 +313,7 @@ void Board::print_how_to(clock_t start_t) {
 	}
 	
 }
-
+//강찬석 작성
 void Board::reset_time()
 {
 	pause_tt = 0;

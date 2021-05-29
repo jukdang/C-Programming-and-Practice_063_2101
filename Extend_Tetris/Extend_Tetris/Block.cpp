@@ -95,13 +95,14 @@ Block& Block::get_block(Block* block)
 	return *this;
 }
 //강찬석 작성
-Block& Block::get_keep(Block* block)
+void Block::get_keep(Block* after,Block *now)
 {
+	this->x = now->x;
+	this->y = now->y;
 	this->direction = 0;
-	this->shape = block->shape;
-	this->stop = block->stop;
+	this->shape = after->shape;
+	this->stop = after->stop;
 
-	return *this;
 }
 //강찬석 작성
 void Block::print_block(int y, int x, int print_type, bool valid)
@@ -128,6 +129,37 @@ void Block::print_block(int y, int x, int print_type, bool valid)
 	}
 	
 	
+}
+//강찬석 작성
+void Block::keeping(bool *can_use_keep, bool *is_keeped, Block* next_block, Block* keep_block)
+{
+	if (*can_use_keep) {
+		this->erase_block();
+		Block temp(board);
+		if (*is_keeped) {
+			temp.get_keep(keep_block,this);
+		}
+		else {
+			temp.get_keep(next_block,this);
+		}
+		
+		if (temp.can_place_on_board()) {
+			if (*is_keeped) {
+				keep_block->get_keep(this, keep_block);
+
+			}
+			else {
+				next_block->create_block(rand() % 7);
+				keep_block->get_keep(this, keep_block);
+				*is_keeped = true;
+			}
+			*can_use_keep = false;
+			this->get_block(&temp);
+		}
+
+		this->draw_block();
+		
+	}
 }
 //김채원 작성
 void Block::move_down() 

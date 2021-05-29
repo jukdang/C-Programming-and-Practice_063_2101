@@ -113,40 +113,7 @@ void Tetris::process_key(char c)
 		pause_t = pause.print_pause();
 		break;
 	case SPACE: 
-		//킵횟수 확인
-		if (can_use_keep) {
-			block.erase_block();
-			//킵한적 있으면 keep <-> now
-			if (is_keeped) {
-				Block temp(&board);
-				temp.get_keep(&keep_block);
-				keep_block.get_keep(&block);
-				block.get_keep(&temp);
-				//swap 가능여부 확인
-				if (!block.can_place_on_board()) {
-					temp.get_keep(&keep_block);
-					keep_block.get_keep(&block);
-					block.get_keep(&temp);
-					break;
-				}
-				can_use_keep = false;
-			}
-			//처음 킵하면 next-> now
-			else {
-				keep_block.get_keep(&block);
-				block.get_keep(&next_block);
-				//swap 가능여부 확인
-				if (!block.can_place_on_board()) {
-					next_block.get_keep(&block);
-					block.get_keep(&keep_block);
-					break;
-				}
-				next_block.create_block(rand() % 7);
-				is_keeped = true;
-				can_use_keep = false;
-			}
-			block.draw_block();
-		}
+		block.keeping(&can_use_keep, &is_keeped, &next_block, &keep_block);
 		break;
 	default:
 		break;
