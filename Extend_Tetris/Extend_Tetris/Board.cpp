@@ -103,7 +103,7 @@ void Board::erase_line()
 			score->score_up();
 			*line += 1;
 			if(*level != 7){
-				if (challenge == 0) {
+				if (*challenge == 0) {
 					if (*line == 5) { // 라인 몇개당 레벨 올릴지
 						*line = 0;
 						*level += 1;
